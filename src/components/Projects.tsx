@@ -41,14 +41,22 @@ const containerVariants = {
   visible: {
     opacity: 1,
     transition: {
-      staggerChildren: 0.2,
+      staggerChildren: 0.15,
+      delayChildren: 0.2,
     },
   },
 };
 
 const itemVariants = {
-  hidden: { opacity: 0, y: 30 },
-  visible: { opacity: 1, y: 0 },
+  hidden: { opacity: 0, y: 40 },
+  visible: { 
+    opacity: 1, 
+    y: 0,
+    transition: {
+      duration: 0.6,
+      ease: "easeOut" as const,
+    }
+  },
 };
 
 export const Projects = () => {
@@ -58,15 +66,22 @@ export const Projects = () => {
       
       <div className="container mx-auto px-4 relative">
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
+          initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
+          viewport={{ once: true, margin: "-100px" }}
+          transition={{ duration: 0.6, ease: "easeOut" }}
           className="text-center mb-16"
         >
-          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-primary/30 bg-card/50 mb-6">
+          <motion.div 
+            initial={{ opacity: 0, scale: 0.9 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5, ease: "easeOut", delay: 0.1 }}
+            className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-primary/30 bg-card/50 mb-6"
+          >
             <code className="text-sm text-muted-foreground">ls -la</code>
             <span className="text-primary font-mono">./projects</span>
-          </div>
+          </motion.div>
           <h2 className="text-3xl md:text-4xl font-bold font-mono mb-4">
             Featured <span className="text-gradient">Projects</span>
           </h2>
@@ -79,13 +94,14 @@ export const Projects = () => {
           variants={containerVariants}
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true }}
+          viewport={{ once: true, margin: "-50px" }}
           className="grid md:grid-cols-2 gap-6"
         >
           {projects.map((project, index) => (
             <motion.div
               key={project.title}
               variants={itemVariants}
+              whileHover={{ y: -8, transition: { duration: 0.4, ease: "easeOut" } }}
               className="group relative"
             >
               <div className="h-full rounded-xl border border-border bg-card/50 backdrop-blur-sm overflow-hidden hover:border-primary/50 hover:shadow-[0_0_40px_hsl(175_80%_50%_/_0.1)] transition-all duration-500">
@@ -100,26 +116,36 @@ export const Projects = () => {
                 {/* Content */}
                 <div className="p-6">
                   <div className="flex items-start justify-between mb-4">
-                    <div className="w-12 h-12 rounded-lg bg-primary/10 flex items-center justify-center group-hover:bg-primary/20 transition-colors">
+                    <motion.div 
+                      className="w-12 h-12 rounded-lg bg-primary/10 flex items-center justify-center group-hover:bg-primary/20 transition-colors duration-500"
+                      whileHover={{ rotate: 5, scale: 1.05 }}
+                      transition={{ duration: 0.3 }}
+                    >
                       <project.icon className="w-6 h-6 text-primary" />
-                    </div>
+                    </motion.div>
                     <div className="flex gap-2">
-                      <a
+                      <motion.a
                         href={project.github}
-                        className="p-2 rounded-lg border border-border hover:border-primary/50 hover:text-primary transition-all"
+                        whileHover={{ scale: 1.1 }}
+                        whileTap={{ scale: 0.95 }}
+                        transition={{ duration: 0.2 }}
+                        className="p-2 rounded-lg border border-border hover:border-primary/50 hover:text-primary transition-all duration-300"
                       >
                         <GitBranch className="w-4 h-4" />
-                      </a>
-                      <a
+                      </motion.a>
+                      <motion.a
                         href={project.link}
-                        className="p-2 rounded-lg border border-border hover:border-primary/50 hover:text-primary transition-all"
+                        whileHover={{ scale: 1.1 }}
+                        whileTap={{ scale: 0.95 }}
+                        transition={{ duration: 0.2 }}
+                        className="p-2 rounded-lg border border-border hover:border-primary/50 hover:text-primary transition-all duration-300"
                       >
                         <ExternalLink className="w-4 h-4" />
-                      </a>
+                      </motion.a>
                     </div>
                   </div>
 
-                  <h3 className="text-xl font-bold font-mono mb-3 text-foreground group-hover:text-gradient transition-colors">
+                  <h3 className="text-xl font-bold font-mono mb-3 text-foreground group-hover:text-gradient transition-all duration-500">
                     {project.title}
                   </h3>
                   <p className="text-muted-foreground mb-4 leading-relaxed">
@@ -128,13 +154,17 @@ export const Projects = () => {
 
                   {/* Tech tags */}
                   <div className="flex flex-wrap gap-2">
-                    {project.tech.map((tech) => (
-                      <span
+                    {project.tech.map((tech, techIndex) => (
+                      <motion.span
                         key={tech}
+                        initial={{ opacity: 0, scale: 0.8 }}
+                        whileInView={{ opacity: 1, scale: 1 }}
+                        viewport={{ once: true }}
+                        transition={{ delay: 0.1 * techIndex, duration: 0.3 }}
                         className="px-3 py-1 text-xs font-mono rounded-full bg-primary/10 text-primary border border-primary/20"
                       >
                         {tech}
-                      </span>
+                      </motion.span>
                     ))}
                   </div>
                 </div>

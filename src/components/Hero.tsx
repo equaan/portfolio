@@ -33,7 +33,7 @@ export const TypingAnimation = () => {
           }
         }
       },
-      isDeleting ? 50 : 100
+      isDeleting ? 40 : 80
     );
 
     return () => clearTimeout(timeout);
@@ -41,8 +41,18 @@ export const TypingAnimation = () => {
 
   return (
     <span className="inline-flex items-center">
-      <span className="text-gradient">{displayedText}</span>
-      <span className="w-0.5 h-8 bg-primary ml-1 animate-blink" />
+      <motion.span 
+        className="text-gradient"
+        layout
+        transition={{ duration: 0.05 }}
+      >
+        {displayedText}
+      </motion.span>
+      <motion.span 
+        className="w-0.5 h-8 bg-primary ml-1"
+        animate={{ opacity: [1, 0] }}
+        transition={{ duration: 0.8, repeat: Infinity, ease: "easeInOut" }}
+      />
     </span>
   );
 };
@@ -59,16 +69,16 @@ export const Hero = () => {
 
       <div className="container relative z-10 px-4">
         <motion.div
-          initial={{ opacity: 0, y: 30 }}
+          initial={{ opacity: 0, y: 40 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
+          transition={{ duration: 1, ease: "easeOut" }}
           className="text-center max-w-4xl mx-auto"
         >
           {/* Terminal prompt */}
           <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ delay: 0.3 }}
+            initial={{ opacity: 0, scale: 0.9 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.6, ease: "easeOut", delay: 0.2 }}
             className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-primary/30 bg-card/50 backdrop-blur-sm mb-8"
           >
             <Terminal className="w-4 h-4 text-primary" />
@@ -77,49 +87,74 @@ export const Hero = () => {
             <span className="text-terminal-green text-sm">ready</span>
           </motion.div>
 
-          <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold mb-6 font-mono">
+          <motion.h1 
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, ease: "easeOut", delay: 0.3 }}
+            className="text-4xl md:text-6xl lg:text-7xl font-bold mb-6 font-mono"
+          >
             <span className="text-foreground">Hi, I'm </span>
             <span className="text-gradient">[Your Name]</span>
-          </h1>
+          </motion.h1>
 
-          <div className="text-2xl md:text-3xl lg:text-4xl font-mono mb-8 h-12">
+          <motion.div 
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, ease: "easeOut", delay: 0.4 }}
+            className="text-2xl md:text-3xl lg:text-4xl font-mono mb-8 h-12"
+          >
             <TypingAnimation />
-          </div>
+          </motion.div>
 
-          <p className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto mb-12 leading-relaxed">
+          <motion.p 
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, ease: "easeOut", delay: 0.5 }}
+            className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto mb-12 leading-relaxed"
+          >
             Building scalable infrastructure, automating everything, and making deployments 
             feel like magic. I turn complex systems into elegant solutions.
-          </p>
+          </motion.p>
 
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.6 }}
+            transition={{ duration: 0.8, ease: "easeOut", delay: 0.6 }}
             className="flex flex-col sm:flex-row gap-4 justify-center"
           >
-            <a href="#projects">
-              <button className="inline-flex items-center justify-center gap-2 h-12 px-8 rounded-md font-mono text-sm bg-gradient-to-r from-primary to-accent text-primary-foreground hover:opacity-90 hover:shadow-[0_0_30px_hsl(175_80%_50%_/_0.5)] transition-all duration-300">
+            <motion.a 
+              href="#projects"
+              whileHover={{ scale: 1.02 }}
+              whileTap={{ scale: 0.98 }}
+              transition={{ duration: 0.2 }}
+            >
+              <button className="inline-flex items-center justify-center gap-2 h-12 px-8 rounded-md font-mono text-sm bg-gradient-to-r from-primary to-accent text-primary-foreground hover:opacity-90 hover:shadow-[0_0_30px_hsl(175_80%_50%_/_0.5)] transition-all duration-500">
                 View My Work
                 <ChevronRight className="w-4 h-4" />
               </button>
-            </a>
-            <a href="#contact">
-              <button className="inline-flex items-center justify-center gap-2 h-12 px-8 rounded-md font-mono text-sm border border-primary/50 bg-transparent text-primary hover:bg-primary/10 hover:border-primary hover:shadow-[0_0_15px_hsl(175_80%_50%_/_0.3)] transition-all duration-300">
+            </motion.a>
+            <motion.a 
+              href="#contact"
+              whileHover={{ scale: 1.02 }}
+              whileTap={{ scale: 0.98 }}
+              transition={{ duration: 0.2 }}
+            >
+              <button className="inline-flex items-center justify-center gap-2 h-12 px-8 rounded-md font-mono text-sm border border-primary/50 bg-transparent text-primary hover:bg-primary/10 hover:border-primary hover:shadow-[0_0_15px_hsl(175_80%_50%_/_0.3)] transition-all duration-500">
                 Get In Touch
               </button>
-            </a>
+            </motion.a>
           </motion.div>
         </motion.div>
 
         {/* Floating elements */}
         <motion.div
-          animate={{ y: [0, -15, 0] }}
-          transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
+          animate={{ y: [0, -15, 0], rotate: [12, 14, 12] }}
+          transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
           className="absolute top-1/4 left-10 w-20 h-20 border border-primary/20 rounded-lg rotate-12 hidden lg:block"
         />
         <motion.div
-          animate={{ y: [0, 15, 0] }}
-          transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
+          animate={{ y: [0, 15, 0], scale: [1, 1.05, 1] }}
+          transition={{ duration: 7, repeat: Infinity, ease: "easeInOut" }}
           className="absolute bottom-1/4 right-10 w-16 h-16 border border-accent/20 rounded-full hidden lg:block"
         />
       </div>
