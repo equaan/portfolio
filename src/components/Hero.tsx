@@ -1,0 +1,128 @@
+import { useState, useEffect } from 'react';
+import { motion } from 'framer-motion';
+import { Terminal, ChevronRight } from 'lucide-react';
+
+const roles = [
+  'DevOps Engineer',
+  'Cloud Architect',
+  'SRE Specialist',
+  'Infrastructure Automation',
+];
+
+export const TypingAnimation = () => {
+  const [currentRole, setCurrentRole] = useState(0);
+  const [displayedText, setDisplayedText] = useState('');
+  const [isDeleting, setIsDeleting] = useState(false);
+
+  useEffect(() => {
+    const role = roles[currentRole];
+    const timeout = setTimeout(
+      () => {
+        if (!isDeleting) {
+          if (displayedText.length < role.length) {
+            setDisplayedText(role.slice(0, displayedText.length + 1));
+          } else {
+            setTimeout(() => setIsDeleting(true), 2000);
+          }
+        } else {
+          if (displayedText.length > 0) {
+            setDisplayedText(displayedText.slice(0, -1));
+          } else {
+            setIsDeleting(false);
+            setCurrentRole((prev) => (prev + 1) % roles.length);
+          }
+        }
+      },
+      isDeleting ? 50 : 100
+    );
+
+    return () => clearTimeout(timeout);
+  }, [displayedText, isDeleting, currentRole]);
+
+  return (
+    <span className="inline-flex items-center">
+      <span className="text-gradient">{displayedText}</span>
+      <span className="w-0.5 h-8 bg-primary ml-1 animate-blink" />
+    </span>
+  );
+};
+
+export const Hero = () => {
+  return (
+    <section className="min-h-screen flex items-center justify-center relative overflow-hidden">
+      {/* Background effects */}
+      <div className="absolute inset-0 hero-gradient opacity-50" />
+      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_hsl(175_80%_50%_/_0.05)_0%,_transparent_70%)]" />
+      
+      {/* Grid pattern */}
+      <div className="absolute inset-0 bg-[linear-gradient(hsl(220_15%_20%_/_0.3)_1px,transparent_1px),linear-gradient(90deg,hsl(220_15%_20%_/_0.3)_1px,transparent_1px)] bg-[size:50px_50px]" />
+
+      <div className="container relative z-10 px-4">
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8 }}
+          className="text-center max-w-4xl mx-auto"
+        >
+          {/* Terminal prompt */}
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ delay: 0.3 }}
+            className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-primary/30 bg-card/50 backdrop-blur-sm mb-8"
+          >
+            <Terminal className="w-4 h-4 text-primary" />
+            <code className="text-sm text-muted-foreground">~/portfolio</code>
+            <ChevronRight className="w-4 h-4 text-primary" />
+            <span className="text-terminal-green text-sm">ready</span>
+          </motion.div>
+
+          <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold mb-6 font-mono">
+            <span className="text-foreground">Hi, I'm </span>
+            <span className="text-gradient">[Your Name]</span>
+          </h1>
+
+          <div className="text-2xl md:text-3xl lg:text-4xl font-mono mb-8 h-12">
+            <TypingAnimation />
+          </div>
+
+          <p className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto mb-12 leading-relaxed">
+            Building scalable infrastructure, automating everything, and making deployments 
+            feel like magic. I turn complex systems into elegant solutions.
+          </p>
+
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.6 }}
+            className="flex flex-col sm:flex-row gap-4 justify-center"
+          >
+            <a href="#projects">
+              <button className="inline-flex items-center justify-center gap-2 h-12 px-8 rounded-md font-mono text-sm bg-gradient-to-r from-primary to-accent text-primary-foreground hover:opacity-90 hover:shadow-[0_0_30px_hsl(175_80%_50%_/_0.5)] transition-all duration-300">
+                View My Work
+                <ChevronRight className="w-4 h-4" />
+              </button>
+            </a>
+            <a href="#contact">
+              <button className="inline-flex items-center justify-center gap-2 h-12 px-8 rounded-md font-mono text-sm border border-primary/50 bg-transparent text-primary hover:bg-primary/10 hover:border-primary hover:shadow-[0_0_15px_hsl(175_80%_50%_/_0.3)] transition-all duration-300">
+                Get In Touch
+              </button>
+            </a>
+          </motion.div>
+        </motion.div>
+
+        {/* Floating elements */}
+        <motion.div
+          animate={{ y: [0, -15, 0] }}
+          transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
+          className="absolute top-1/4 left-10 w-20 h-20 border border-primary/20 rounded-lg rotate-12 hidden lg:block"
+        />
+        <motion.div
+          animate={{ y: [0, 15, 0] }}
+          transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
+          className="absolute bottom-1/4 right-10 w-16 h-16 border border-accent/20 rounded-full hidden lg:block"
+        />
+      </div>
+    </section>
+  );
+};
