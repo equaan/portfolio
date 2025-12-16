@@ -21,14 +21,23 @@ const containerVariants = {
   visible: {
     opacity: 1,
     transition: {
-      staggerChildren: 0.1,
+      staggerChildren: 0.08,
+      delayChildren: 0.2,
     },
   },
 };
 
 const itemVariants = {
-  hidden: { opacity: 0, y: 20 },
-  visible: { opacity: 1, y: 0 },
+  hidden: { opacity: 0, y: 30, scale: 0.95 },
+  visible: { 
+    opacity: 1, 
+    y: 0, 
+    scale: 1,
+    transition: {
+      duration: 0.5,
+      ease: "easeOut" as const,
+    }
+  },
 };
 
 export const Skills = () => {
@@ -38,15 +47,22 @@ export const Skills = () => {
       
       <div className="container mx-auto px-4 relative">
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
+          initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
+          viewport={{ once: true, margin: "-100px" }}
+          transition={{ duration: 0.6, ease: "easeOut" }}
           className="text-center mb-16"
         >
-          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-primary/30 bg-card/50 mb-6">
+          <motion.div 
+            initial={{ opacity: 0, scale: 0.9 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5, ease: "easeOut", delay: 0.1 }}
+            className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-primary/30 bg-card/50 mb-6"
+          >
             <code className="text-sm text-muted-foreground">cat</code>
             <span className="text-primary font-mono">skills.yml</span>
-          </div>
+          </motion.div>
           <h2 className="text-3xl md:text-4xl font-bold font-mono mb-4">
             Tech <span className="text-gradient">Stack</span>
           </h2>
@@ -59,19 +75,23 @@ export const Skills = () => {
           variants={containerVariants}
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true }}
+          viewport={{ once: true, margin: "-50px" }}
           className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4"
         >
           {skills.map((skill) => (
             <motion.div
               key={skill.name}
               variants={itemVariants}
-              whileHover={{ scale: 1.05, y: -5 }}
-              className="group relative p-6 rounded-xl border border-border bg-card/50 backdrop-blur-sm hover:border-primary/50 hover:shadow-[0_0_30px_hsl(175_80%_50%_/_0.1)] transition-all duration-300"
+              whileHover={{ 
+                scale: 1.03, 
+                y: -5,
+                transition: { duration: 0.3, ease: "easeOut" }
+              }}
+              className="group relative p-6 rounded-xl border border-border bg-card/50 backdrop-blur-sm hover:border-primary/50 hover:shadow-[0_0_30px_hsl(175_80%_50%_/_0.1)] transition-all duration-500"
             >
-              <div className="absolute inset-0 rounded-xl bg-gradient-to-br from-primary/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
+              <div className="absolute inset-0 rounded-xl bg-gradient-to-br from-primary/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
               <div className="relative">
-                <div className="w-12 h-12 rounded-lg bg-primary/10 flex items-center justify-center mb-4 group-hover:bg-primary/20 transition-colors">
+                <div className="w-12 h-12 rounded-lg bg-primary/10 flex items-center justify-center mb-4 group-hover:bg-primary/20 transition-colors duration-500">
                   <skill.icon className="w-6 h-6 text-primary" />
                 </div>
                 <h3 className="font-mono font-semibold text-foreground mb-1">{skill.name}</h3>
