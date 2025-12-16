@@ -1,12 +1,11 @@
 import { motion } from 'framer-motion';
-import { Mail, Github, Linkedin, Twitter, Send, Terminal } from 'lucide-react';
+import { Mail, Github, Linkedin, Send, Terminal } from 'lucide-react';
 import { useState } from 'react';
 
 const socialLinks = [
-  { icon: Github, href: 'https://github.com/yourusername', label: 'GitHub' },
-  { icon: Linkedin, href: 'https://linkedin.com/in/yourusername', label: 'LinkedIn' },
-  { icon: Twitter, href: 'https://twitter.com/yourusername', label: 'Twitter' },
-  { icon: Mail, href: 'mailto:your@email.com', label: 'Email' },
+  { icon: Github, href: 'https://github.com/equaan', label: 'GitHub' },
+  { icon: Linkedin, href: 'https://linkedin.com/in/equaan-devops', label: 'LinkedIn' },
+  { icon: Mail, href: 'equaankacchi367@gmail.com', label: 'Email' },
 ];
 
 const staggerContainer = {
