@@ -99,28 +99,28 @@ export const About = () => {
                   <User className="w-5 h-5 text-primary mt-0.5" />
                   <div>
                     <span className="text-muted-foreground">name:</span>
-                    <span className="text-foreground ml-2">[Your Name]</span>
+                    <span className="text-foreground ml-2">Mohammad Equaan Kacchi</span>
                   </div>
                 </motion.div>
                 <motion.div variants={fadeInUp} className="flex items-start gap-3">
                   <Briefcase className="w-5 h-5 text-primary mt-0.5" />
                   <div>
                     <span className="text-muted-foreground">role:</span>
-                    <span className="text-foreground ml-2">Senior DevOps Engineer</span>
+                    <span className="text-foreground ml-2">Aspiring DevOps Engineer</span>
                   </div>
                 </motion.div>
                 <motion.div variants={fadeInUp} className="flex items-start gap-3">
                   <MapPin className="w-5 h-5 text-primary mt-0.5" />
                   <div>
                     <span className="text-muted-foreground">location:</span>
-                    <span className="text-foreground ml-2">[Your City, Country]</span>
+                    <span className="text-foreground ml-2">Mumbai, India</span>
                   </div>
                 </motion.div>
                 <motion.div variants={fadeInUp} className="flex items-start gap-3">
                   <GraduationCap className="w-5 h-5 text-primary mt-0.5" />
                   <div>
-                    <span className="text-muted-foreground">experience:</span>
-                    <span className="text-foreground ml-2">X+ years</span>
+                    <span className="text-muted-foreground">status:</span>
+                    <span className="text-foreground ml-2">Seeking Internship</span>
                   </div>
                 </motion.div>
               </motion.div>
@@ -136,18 +136,18 @@ export const About = () => {
             className="space-y-6"
           >
             <p className="text-lg text-muted-foreground leading-relaxed">
-              I'm a passionate DevOps Engineer with a deep love for automation, infrastructure as code, 
-              and building systems that scale. My journey started with a curiosity about how things work 
-              behind the scenes, and it led me to the fascinating world of cloud infrastructure.
+              I'm Mohammad Equaan Kacchi, an enthusiastic beginner diving into the world of DevOps. 
+              My journey started with a curiosity about how things work behind the scenes, and it led me 
+              to the fascinating world of cloud infrastructure and automation.
             </p>
             <p className="text-lg text-muted-foreground leading-relaxed">
-              I specialize in designing and implementing CI/CD pipelines, container orchestration with 
-              Kubernetes, and cloud-native architectures on AWS. I believe in the philosophy of 
-              "automate everything" and strive to make deployments as smooth as a <code className="text-primary">git push</code>.
+              I'm currently learning CI/CD pipelines, container technologies like Docker and Kubernetes, 
+              and cloud platforms like AWS. I believe in the philosophy of "automate everything" and I'm 
+              eager to apply my skills in a real-world environment through an internship.
             </p>
             <p className="text-lg text-muted-foreground leading-relaxed">
-              When I'm not writing YAML or debugging containers, you can find me contributing to 
-              open-source projects, exploring new DevOps tools, or sharing knowledge with the community.
+              Based in Mumbai, India, I'm actively seeking internship opportunities where I can learn from 
+              experienced professionals and contribute to meaningful projects while growing my DevOps expertise.
             </p>
 
             {/* Stats */}
@@ -159,9 +159,9 @@ export const About = () => {
               viewport={{ once: true }}
             >
               {[
-                { value: 'X+', label: 'Years Exp' },
-                { value: 'XX+', label: 'Projects' },
-                { value: 'XX%', label: 'Uptime SLA' },
+                { value: '🎯', label: 'Seeking Internship' },
+                { value: '📚', label: 'Always Learning' },
+                { value: '💡', label: 'Problem Solver' },
               ].map((stat) => (
                 <motion.div 
                   key={stat.label} 
