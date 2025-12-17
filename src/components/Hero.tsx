@@ -142,8 +142,10 @@ export const Hero = () => {
                 Get In Touch
               </button>
             </motion.a>
+            
+            {/* --- FIXED SECTION BELOW --- */}
             <motion.a 
-              href="/resume.pdf"
+              href={`${import.meta.env.BASE_URL}resume.pdf`}
               download="Mohammad_Equaan_Kacchi_Resume.pdf"
               whileHover={{ scale: 1.02 }}
               whileTap={{ scale: 0.98 }}
@@ -154,6 +156,8 @@ export const Hero = () => {
                 Download CV
               </button>
             </motion.a>
+            {/* --------------------------- */}
+            
           </motion.div>
         </motion.div>
 
