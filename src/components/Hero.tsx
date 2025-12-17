@@ -3,9 +3,9 @@ import { motion } from 'framer-motion';
 import { Terminal, ChevronRight } from 'lucide-react';
 
 const roles = [
-  'DevOps Engineer',
-  'Cloud Architect',
-  'Infrastructure Automation',
+  'Aspiring DevOps Engineer',
+  'Cloud Enthusiast',
+  'Automation Learner',
 ];
 
 export const TypingAnimation = () => {
@@ -93,7 +93,7 @@ export const Hero = () => {
             className="text-4xl md:text-6xl lg:text-7xl font-bold mb-6 font-mono"
           >
             <span className="text-foreground">Hi, I'm </span>
-            <span className="text-gradient">Equaan</span>
+            <span className="text-gradient">Mohammad Equaan</span>
           </motion.h1>
 
           <motion.div 
@@ -111,8 +111,8 @@ export const Hero = () => {
             transition={{ duration: 0.8, ease: "easeOut", delay: 0.5 }}
             className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto mb-12 leading-relaxed"
           >
-            Building scalable infrastructure, automating everything, and making deployments 
-            feel like magic. I turn complex systems into elegant solutions.
+            A passionate beginner exploring the world of DevOps, cloud infrastructure, and automation. 
+            Currently seeking internship opportunities to learn and grow in this exciting field.
           </motion.p>
 
           <motion.div
