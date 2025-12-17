@@ -93,7 +93,7 @@ export const Hero = () => {
             className="text-4xl md:text-6xl lg:text-7xl font-bold mb-6 font-mono"
           >
             <span className="text-foreground">Hi, I'm </span>
-            <span className="text-gradient">Mohammad Equaan</span>
+            <span className="text-gradient">Equaan</span>
           </motion.h1>
 
           <motion.div 
