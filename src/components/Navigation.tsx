@@ -67,8 +67,10 @@ export const Navigation = () => {
                 {item.label}
               </motion.a>
             ))}
+            
+            {/* --- FIX #1: Desktop Resume Link --- */}
             <motion.a
-              href="/resume.pdf"
+              href={`${import.meta.env.BASE_URL}resume.pdf`}
               initial={{ opacity: 0, y: -20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.5, duration: 0.4, ease: "easeOut" }}
@@ -143,8 +145,10 @@ export const Navigation = () => {
                   {item.label}
                 </motion.a>
               ))}
+              
+              {/* --- FIX #2: Mobile Resume Link --- */}
               <motion.a
-                href="/resume.pdf"
+                href={`${import.meta.env.BASE_URL}resume.pdf`}
                 initial={{ opacity: 0, x: -20 }}
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ delay: 0.25, duration: 0.3 }}
