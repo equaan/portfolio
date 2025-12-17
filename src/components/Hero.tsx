@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
-import { Terminal, ChevronRight } from 'lucide-react';
+import { Terminal, ChevronRight, Download } from 'lucide-react';
 
 const roles = [
   'Aspiring DevOps Engineer',
@@ -140,6 +140,18 @@ export const Hero = () => {
             >
               <button className="inline-flex items-center justify-center gap-2 h-12 px-8 rounded-md font-mono text-sm border border-primary/50 bg-transparent text-primary hover:bg-primary/10 hover:border-primary hover:shadow-[0_0_15px_hsl(175_80%_50%_/_0.3)] transition-all duration-500">
                 Get In Touch
+              </button>
+            </motion.a>
+            <motion.a 
+              href="/resume.pdf"
+              download="Mohammad_Equaan_Kacchi_Resume.pdf"
+              whileHover={{ scale: 1.02 }}
+              whileTap={{ scale: 0.98 }}
+              transition={{ duration: 0.2 }}
+            >
+              <button className="inline-flex items-center justify-center gap-2 h-12 px-8 rounded-md font-mono text-sm border border-accent/50 bg-transparent text-accent hover:bg-accent/10 hover:border-accent hover:shadow-[0_0_15px_hsl(185_70%_45%_/_0.3)] transition-all duration-500">
+                <Download className="w-4 h-4" />
+                Download CV
               </button>
             </motion.a>
           </motion.div>
