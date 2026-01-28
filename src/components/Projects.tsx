@@ -1,38 +1,20 @@
 import { motion } from 'framer-motion';
-import { ExternalLink, GitBranch, Cloud, Container, Server } from 'lucide-react';
+import { Github, Cloud, Container } from 'lucide-react';
 
 const projects = [
   {
-    title: 'Cloud Infrastructure Platform',
-    description: 'Designed and implemented a multi-region AWS infrastructure using Terraform, supporting 99.99% uptime for production workloads.',
-    tech: ['Terraform', 'AWS', 'CloudWatch', 'Lambda'],
+    title: 'Cloud Cost Optimization Engine',
+    description: 'Automated Jenkins build log archival to Amazon S3 using Shell scripting and AWS CLI, achieving ~50% reduction in log storage costs by replacing expensive EBS storage with lifecycle-managed S3 buckets.',
+    tech: ['Shell Scripting', 'AWS CLI', 'Amazon S3', 'Jenkins', 'Linux cron'],
     icon: Cloud,
-    link: '#',
-    github: '#',
+    github: 'https://github.com/equaan/cloud-cost-optimization',
   },
   {
-    title: 'Kubernetes Cluster Management',
-    description: 'Built and maintained production-grade Kubernetes clusters with automated scaling, monitoring, and self-healing capabilities.',
-    tech: ['Kubernetes', 'Helm', 'Prometheus', 'ArgoCD'],
+    title: 'MERN Stack Container Architecture',
+    description: 'Containerized and deployed a three-tier MERN stack application (React, Node.js, MongoDB) using Docker and Docker Compose with custom Dockerfiles and shared bridge networking for inter-service communication.',
+    tech: ['Docker', 'Docker Compose', 'Node.js', 'React', 'MongoDB'],
     icon: Container,
-    link: '#',
-    github: '#',
-  },
-  {
-    title: 'CI/CD Pipeline Automation',
-    description: 'Implemented GitOps-based deployment pipelines reducing deployment time by 80% and enabling 50+ daily deployments.',
-    tech: ['GitHub Actions', 'Jenkins', 'Docker', 'SonarQube'],
-    icon: GitBranch,
-    link: '#',
-    github: '#',
-  },
-  {
-    title: 'Infrastructure Monitoring Suite',
-    description: 'Created comprehensive monitoring and alerting system with custom dashboards for real-time infrastructure visibility.',
-    tech: ['Grafana', 'Prometheus', 'ELK Stack', 'PagerDuty'],
-    icon: Server,
-    link: '#',
-    github: '#',
+    github: 'https://github.com/equaan/The-Container-Architecture',
   },
 ];
 
@@ -123,26 +105,17 @@ export const Projects = () => {
                     >
                       <project.icon className="w-6 h-6 text-primary" />
                     </motion.div>
-                    <div className="flex gap-2">
-                      <motion.a
-                        href={project.github}
-                        whileHover={{ scale: 1.1 }}
-                        whileTap={{ scale: 0.95 }}
-                        transition={{ duration: 0.2 }}
-                        className="p-2 rounded-lg border border-border hover:border-primary/50 hover:text-primary transition-all duration-300"
-                      >
-                        <GitBranch className="w-4 h-4" />
-                      </motion.a>
-                      <motion.a
-                        href={project.link}
-                        whileHover={{ scale: 1.1 }}
-                        whileTap={{ scale: 0.95 }}
-                        transition={{ duration: 0.2 }}
-                        className="p-2 rounded-lg border border-border hover:border-primary/50 hover:text-primary transition-all duration-300"
-                      >
-                        <ExternalLink className="w-4 h-4" />
-                      </motion.a>
-                    </div>
+                    <motion.a
+                      href={project.github}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      whileHover={{ scale: 1.1 }}
+                      whileTap={{ scale: 0.95 }}
+                      transition={{ duration: 0.2 }}
+                      className="p-2 rounded-lg border border-border hover:border-primary/50 hover:text-primary transition-all duration-300"
+                    >
+                      <Github className="w-4 h-4" />
+                    </motion.a>
                   </div>
 
                   <h3 className="text-xl font-bold font-mono mb-3 text-foreground group-hover:text-gradient transition-all duration-500">
