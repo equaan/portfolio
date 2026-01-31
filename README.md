@@ -1,73 +1,80 @@
-# Welcome to your Lovable project
+# equaan | DevOps Engineer Portfolio
 
-## Project info
+A professional portfolio showcasing DevOps engineering expertise in cloud infrastructure, automation, and modern development practices.
 
-**URL**: https://lovable.dev/projects/REPLACE_WITH_PROJECT_ID
+## About
 
-## How can I edit this code?
+I'm **equaan**, a DevOps Engineer specializing in building scalable cloud infrastructure and implementing robust CI/CD pipelines. This portfolio demonstrates my technical skills and project experience in the DevOps and Cloud Engineering domain.
 
-There are several ways of editing your application.
+## Technical Expertise
 
-**Use Lovable**
+### Cloud Platforms
+- **Amazon Web Services (AWS)** – EC2, S3, Lambda, RDS, VPC, CloudFormation, IAM
+- **Microsoft Azure** – Virtual Machines, Azure DevOps, AKS
+- **Google Cloud Platform (GCP)** – Compute Engine, Cloud Functions
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/REPLACE_WITH_PROJECT_ID) and start prompting.
+### Container & Orchestration
+- **Docker** – Containerization, Multi-stage builds, Docker Compose
+- **Kubernetes (K8s)** – Cluster management, Helm charts, Service mesh
+- **Amazon EKS / ECS** – Managed container orchestration
 
-Changes made via Lovable will be committed automatically to this repo.
+### Infrastructure as Code (IaC)
+- **Terraform** – Multi-cloud provisioning, State management, Modules
+- **AWS CloudFormation** – Stack management, Nested stacks
+- **Ansible** – Configuration management, Playbooks, Roles
 
-**Use your preferred IDE**
+### CI/CD & Automation
+- **GitHub Actions** – Workflow automation, Matrix builds
+- **Jenkins** – Pipeline as code, Shared libraries
+- **GitLab CI/CD** – Auto DevOps, Container registry
+- **ArgoCD** – GitOps, Continuous deployment
 
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
+### Monitoring & Observability
+- **Prometheus & Grafana** – Metrics collection, Dashboards, Alerting
+- **ELK Stack** – Elasticsearch, Logstash, Kibana
+- **AWS CloudWatch** – Log management, Custom metrics
 
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
+### Scripting & Development
+- **Bash / Shell Scripting** – Automation scripts, System administration
+- **Python** – Boto3, Automation, API integrations
+- **YAML / JSON** – Configuration files, API payloads
 
-Follow these steps:
+## Featured Projects
 
-```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
+This portfolio includes projects demonstrating:
+- Cloud infrastructure deployment with Terraform and AWS
+- Kubernetes cluster setup and application deployment
+- CI/CD pipeline implementation with GitHub Actions
+- Container orchestration with Docker and Kubernetes
+- Infrastructure monitoring with Prometheus and Grafana
 
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
+## Certifications
 
-# Step 3: Install the necessary dependencies.
-npm i
+- AWS Certified Solutions Architect
+- AWS Certified DevOps Engineer
+- Certified Kubernetes Administrator (CKA)
+- HashiCorp Certified: Terraform Associate
 
-# Step 4: Start the development server with auto-reloading and an instant preview.
-npm run dev
-```
+## Connect
 
-**Edit a file directly in GitHub**
+- **Portfolio**: [equaan.github.io/portfolio](https://equaan.github.io/portfolio/)
+- **LinkedIn**: [linkedin.com/in/equaan-devops](https://www.linkedin.com/in/equaan-devops/)
+- **GitHub**: [github.com/equaan](https://github.com/equaan)
+- **Twitter/X**: [@md_equaan](https://x.com/md_equaan)
 
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
+## Tech Stack
 
-**Use GitHub Codespaces**
-
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
-
-## What technologies are used for this project?
-
-This project is built with:
-
-- Vite
-- TypeScript
-- React
-- shadcn-ui
+This portfolio is built with:
+- React 18 + TypeScript
+- Vite (Build tool)
 - Tailwind CSS
+- Framer Motion (Animations)
+- shadcn/ui (Components)
 
-## How can I deploy this project?
+## Keywords
 
-Simply open [Lovable](https://lovable.dev/projects/REPLACE_WITH_PROJECT_ID) and click on Share -> Publish.
+DevOps Engineer, Cloud Engineer, Site Reliability Engineer (SRE), Platform Engineer, AWS, Amazon Web Services, Kubernetes, Docker, Terraform, Infrastructure as Code, CI/CD, Continuous Integration, Continuous Deployment, GitHub Actions, Jenkins, GitOps, ArgoCD, Linux, Shell Scripting, Python, Automation, Cloud Infrastructure, Microservices, Container Orchestration, Helm, Prometheus, Grafana, ELK Stack, Monitoring, Observability, Configuration Management, Ansible, CloudFormation, Azure DevOps, GCP, Multi-cloud, High Availability, Scalability, Security, IAM, VPC, Networking
 
-## Can I connect a custom domain to my Lovable project?
+---
 
-Yes, you can!
-
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
-
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/features/custom-domain#custom-domain)
+© 2024 equaan. All rights reserved.
