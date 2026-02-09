@@ -45,7 +45,7 @@ export const Navigation = () => {
               whileHover={{ rotate: 5 }}
               transition={{ duration: 0.3 }}
             >
-              <Terminal className="w-5 h-5 text-primary-foreground" />
+              <Terminal className="w-5 h-5 text-primary-foreground" aria-hidden="true" />
             </motion.div>
             <span className="font-mono font-bold text-lg hidden sm:block">
               dev<span className="text-primary">ops</span>
@@ -86,8 +86,10 @@ export const Navigation = () => {
           {/* Mobile Menu Button */}
           <motion.button
             onClick={() => setIsOpen(!isOpen)}
-            className="md:hidden p-2 text-foreground hover:text-primary transition-colors duration-300"
+            className="md:hidden p-3 min-w-[48px] min-h-[48px] flex items-center justify-center text-foreground hover:text-primary transition-colors duration-300"
             whileTap={{ scale: 0.9 }}
+            aria-label={isOpen ? "Close navigation menu" : "Open navigation menu"}
+            aria-expanded={isOpen}
           >
             <AnimatePresence mode="wait">
               {isOpen ? (

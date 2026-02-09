@@ -74,9 +74,9 @@ export const Hero = () => {
             transition={{ duration: 0.4, ease: "easeOut", delay: 0.1 }}
             className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-primary/30 bg-card/50 backdrop-blur-sm mb-8"
           >
-            <Terminal className="w-4 h-4 text-primary" />
+            <Terminal className="w-4 h-4 text-primary" aria-hidden="true" />
             <code className="text-sm text-muted-foreground">~/portfolio</code>
-            <ChevronRight className="w-4 h-4 text-primary" />
+            <ChevronRight className="w-4 h-4 text-primary" aria-hidden="true" />
             <span className="text-terminal-green text-sm">ready</span>
           </motion.div>
 
@@ -123,7 +123,7 @@ export const Hero = () => {
             >
               <button className="inline-flex items-center justify-center gap-2 h-12 px-8 rounded-md font-mono text-sm bg-gradient-to-r from-primary to-accent text-primary-foreground hover:opacity-90 hover:shadow-[0_0_30px_hsl(175_80%_50%_/_0.5)] transition-all duration-500">
                 View My Work
-                <ChevronRight className="w-4 h-4" />
+                <ChevronRight className="w-4 h-4" aria-hidden="true" />
               </button>
             </motion.a>
             <motion.a 
@@ -146,7 +146,7 @@ export const Hero = () => {
               transition={{ duration: 0.2 }}
             >
               <button className="inline-flex items-center justify-center gap-2 h-12 px-8 rounded-md font-mono text-sm border border-accent/50 bg-transparent text-accent hover:bg-accent/10 hover:border-accent hover:shadow-[0_0_15px_hsl(185_70%_45%_/_0.3)] transition-all duration-500">
-                <Download className="w-4 h-4" />
+                <Download className="w-4 h-4" aria-hidden="true" />
                 Download CV
               </button>
             </motion.a>

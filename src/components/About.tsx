@@ -96,28 +96,28 @@ export const About = () => {
                 viewport={{ once: true }}
               >
                 <motion.div variants={fadeInUp} className="flex items-start gap-3">
-                  <User className="w-5 h-5 text-primary mt-0.5" />
+                  <User className="w-5 h-5 text-primary mt-0.5" aria-hidden="true" />
                   <div>
                     <span className="text-muted-foreground">name:</span>
                     <span className="text-foreground ml-2">Mohammad Equaan Kacchi</span>
                   </div>
                 </motion.div>
                 <motion.div variants={fadeInUp} className="flex items-start gap-3">
-                  <Briefcase className="w-5 h-5 text-primary mt-0.5" />
+                  <Briefcase className="w-5 h-5 text-primary mt-0.5" aria-hidden="true" />
                   <div>
                     <span className="text-muted-foreground">role:</span>
                     <span className="text-foreground ml-2">Aspiring DevOps Engineer</span>
                   </div>
                 </motion.div>
                 <motion.div variants={fadeInUp} className="flex items-start gap-3">
-                  <MapPin className="w-5 h-5 text-primary mt-0.5" />
+                  <MapPin className="w-5 h-5 text-primary mt-0.5" aria-hidden="true" />
                   <div>
                     <span className="text-muted-foreground">location:</span>
                     <span className="text-foreground ml-2">Mumbai, India</span>
                   </div>
                 </motion.div>
                 <motion.div variants={fadeInUp} className="flex items-start gap-3">
-                  <GraduationCap className="w-5 h-5 text-primary mt-0.5" />
+                  <GraduationCap className="w-5 h-5 text-primary mt-0.5" aria-hidden="true" />
                   <div>
                     <span className="text-muted-foreground">status:</span>
                     <span className="text-foreground ml-2">Seeking Internship</span>

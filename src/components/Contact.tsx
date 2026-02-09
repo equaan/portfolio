@@ -92,11 +92,12 @@ export const Contact = () => {
                 href={link.href}
                 target={link.label !== 'Email' ? '_blank' : undefined}
                 rel={link.label !== 'Email' ? 'noopener noreferrer' : undefined}
+                aria-label={`Contact via ${link.label}`}
                 variants={fadeInUp}
                 whileHover={{ scale: 1.05, y: -5 }}
                 whileTap={{ scale: 0.98 }}
                 transition={{ duration: 0.3 }}
-                className="group flex items-center gap-3 px-6 py-4 rounded-xl border border-border bg-card/50 hover:border-primary/50 hover:shadow-[0_0_20px_hsl(175_80%_50%_/_0.1)] transition-all duration-500"
+                className="group flex items-center gap-3 px-6 py-4 min-h-[48px] rounded-xl border border-border bg-card/50 hover:border-primary/50 hover:shadow-[0_0_20px_hsl(175_80%_50%_/_0.1)] transition-all duration-500"
               >
                 <div className="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center group-hover:bg-primary/20 transition-colors duration-500">
                   <link.icon className="w-5 h-5 text-primary" />
