@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600;700&family=Inter:wght@400;500;600&display=swap');
 
 @tailwind base;
 @tailwind components;
@@ -107,6 +107,20 @@
   .typing-cursor::after {
     content: '|';
     @apply text-primary animate-pulse ml-1;
+  }
+
+  /* Performance: use CSS animation instead of JS for cursor blink */
+  .animate-blink {
+    animation: blink 1s ease-in-out infinite;
+  }
+
+  /* GPU acceleration hints for animated elements */
+  .will-change-transform {
+    will-change: transform;
+  }
+
+  .will-change-opacity {
+    will-change: opacity;
   }
 }
 
