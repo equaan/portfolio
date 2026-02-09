@@ -103,18 +103,19 @@ export const Projects = () => {
                       whileHover={{ rotate: 5, scale: 1.05 }}
                       transition={{ duration: 0.3 }}
                     >
-                      <project.icon className="w-6 h-6 text-primary" />
+                      <project.icon className="w-6 h-6 text-primary" aria-hidden="true" />
                     </motion.div>
                     <motion.a
                       href={project.github}
                       target="_blank"
                       rel="noopener noreferrer"
+                      aria-label={`View ${project.title} on GitHub`}
                       whileHover={{ scale: 1.1 }}
                       whileTap={{ scale: 0.95 }}
                       transition={{ duration: 0.2 }}
-                      className="p-2 rounded-lg border border-border hover:border-primary/50 hover:text-primary transition-all duration-300"
+                      className="p-3 min-w-[48px] min-h-[48px] flex items-center justify-center rounded-lg border border-border hover:border-primary/50 hover:text-primary transition-all duration-300"
                     >
-                      <Github className="w-4 h-4" />
+                      <Github className="w-5 h-5" />
                     </motion.a>
                   </div>
 

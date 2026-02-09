@@ -92,7 +92,7 @@ export const Skills = () => {
               <div className="absolute inset-0 rounded-xl bg-gradient-to-br from-primary/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
               <div className="relative">
                 <div className="w-12 h-12 rounded-lg bg-primary/10 flex items-center justify-center mb-4 group-hover:bg-primary/20 transition-colors duration-500">
-                  <skill.icon className="w-6 h-6 text-primary" />
+                  <skill.icon className="w-6 h-6 text-primary" aria-hidden="true" />
                 </div>
                 <h3 className="font-mono font-semibold text-foreground mb-1">{skill.name}</h3>
                 <p className="text-xs text-muted-foreground">{skill.category}</p>

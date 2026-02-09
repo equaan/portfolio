@@ -97,10 +97,10 @@ export const Certifications = () => {
                       whileHover={{ rotate: 5, scale: 1.05 }}
                       transition={{ duration: 0.3 }}
                     >
-                      <Award className="w-7 h-7 text-primary" />
+                      <Award className="w-7 h-7 text-primary" aria-hidden="true" />
                     </motion.div>
-                    <div className="p-2 rounded-lg border border-border group-hover:border-primary/50 group-hover:text-primary transition-all duration-300">
-                      <ExternalLink className="w-4 h-4" />
+                    <div className="p-3 min-w-[48px] min-h-[48px] flex items-center justify-center rounded-lg border border-border group-hover:border-primary/50 group-hover:text-primary transition-all duration-300" aria-hidden="true">
+                      <ExternalLink className="w-5 h-5" />
                     </div>
                   </div>
 
