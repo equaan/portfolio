@@ -39,18 +39,12 @@ export const TypingAnimation = () => {
   }, [displayedText, isDeleting, currentRole]);
 
   return (
-    <span className="inline-flex items-center">
-      <motion.span 
-        className="text-gradient"
-        layout
-        transition={{ duration: 0.05 }}
-      >
+    <span className="inline-flex items-center min-h-[2rem]">
+      <span className="text-gradient">
         {displayedText}
-      </motion.span>
-      <motion.span 
-        className="w-0.5 h-8 bg-primary ml-1"
-        animate={{ opacity: [1, 0] }}
-        transition={{ duration: 0.8, repeat: Infinity, ease: "easeInOut" }}
+      </span>
+      <span 
+        className="w-0.5 h-8 bg-primary ml-1 animate-blink"
       />
     </span>
   );
@@ -59,25 +53,25 @@ export const TypingAnimation = () => {
 export const Hero = () => {
   return (
     <section className="min-h-screen flex items-center justify-center relative overflow-hidden">
-      {/* Background effects */}
+      {/* Background effects - static, no JS animations */}
       <div className="absolute inset-0 hero-gradient opacity-50" />
       <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_hsl(175_80%_50%_/_0.05)_0%,_transparent_70%)]" />
       
-      {/* Grid pattern */}
+      {/* Grid pattern - static */}
       <div className="absolute inset-0 bg-[linear-gradient(hsl(220_15%_20%_/_0.3)_1px,transparent_1px),linear-gradient(90deg,hsl(220_15%_20%_/_0.3)_1px,transparent_1px)] bg-[size:50px_50px]" />
 
       <div className="container relative z-10 px-4">
         <motion.div
-          initial={{ opacity: 0, y: 40 }}
+          initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 1, ease: "easeOut" }}
+          transition={{ duration: 0.6, ease: "easeOut" }}
           className="text-center max-w-4xl mx-auto"
         >
           {/* Terminal prompt */}
           <motion.div
-            initial={{ opacity: 0, scale: 0.9 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.6, ease: "easeOut", delay: 0.2 }}
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 0.4, ease: "easeOut", delay: 0.1 }}
             className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-primary/30 bg-card/50 backdrop-blur-sm mb-8"
           >
             <Terminal className="w-4 h-4 text-primary" />
@@ -100,7 +94,7 @@ export const Hero = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, ease: "easeOut", delay: 0.4 }}
-            className="text-2xl md:text-3xl lg:text-4xl font-mono mb-8 h-12"
+            className="text-2xl md:text-3xl lg:text-4xl font-mono mb-8 min-h-[3rem] flex items-center justify-center"
           >
             <TypingAnimation />
           </motion.div>
@@ -161,17 +155,9 @@ export const Hero = () => {
           </motion.div>
         </motion.div>
 
-        {/* Floating elements */}
-        <motion.div
-          animate={{ y: [0, -15, 0], rotate: [12, 14, 12] }}
-          transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
-          className="absolute top-1/4 left-10 w-20 h-20 border border-primary/20 rounded-lg rotate-12 hidden lg:block"
-        />
-        <motion.div
-          animate={{ y: [0, 15, 0], scale: [1, 1.05, 1] }}
-          transition={{ duration: 7, repeat: Infinity, ease: "easeInOut" }}
-          className="absolute bottom-1/4 right-10 w-16 h-16 border border-accent/20 rounded-full hidden lg:block"
-        />
+        {/* Floating elements - using CSS animations for performance */}
+        <div className="absolute top-1/4 left-10 w-20 h-20 border border-primary/20 rounded-lg rotate-12 hidden lg:block animate-float" />
+        <div className="absolute bottom-1/4 right-10 w-16 h-16 border border-accent/20 rounded-full hidden lg:block animate-float" style={{ animationDelay: '1s' }} />
       </div>
     </section>
   );
