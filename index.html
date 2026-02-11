@@ -6,8 +6,15 @@
 
     <!-- Preconnect for fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="anonymous" />
+
+    <!-- Critical CSS: above-the-fold styles to eliminate render-blocking -->
+    <style>
+      body{margin:0;background:#0d1117;color:#e0e4e8;font-family:Inter,sans-serif;-webkit-font-smoothing:antialiased}
+      h1,h2,h3,h4,h5,h6,code,pre,.mono{font-family:'JetBrains Mono',monospace}
+      #root{min-height:100vh}
+    </style>
+
     <!-- Favicon -->
     <link rel="icon" type="image/x-icon" href="/portfolio/favicon.ico" />
     <meta name="theme-color" content="#0d1117" />
@@ -60,5 +67,7 @@
   <body>
     <div id="root"></div>
     <script type="module" src="/src/main.tsx"></script>
+    <!-- Load fonts non-render-blocking at end of body -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600;700&family=Inter:wght@400;500;600&display=swap" media="print" onload="this.media='all'" />
   </body>
 </html>

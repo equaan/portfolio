@@ -36,6 +36,7 @@ export const Navigation = () => {
           {/* Logo */}
           <motion.a 
             href="#" 
+            aria-label="equaan — DevOps portfolio home"
             className="flex items-center gap-2 group"
             whileHover={{ scale: 1.02 }}
             transition={{ duration: 0.3 }}
@@ -86,7 +87,7 @@ export const Navigation = () => {
           {/* Mobile Menu Button */}
           <motion.button
             onClick={() => setIsOpen(!isOpen)}
-            className="md:hidden p-3 min-w-[48px] min-h-[48px] flex items-center justify-center text-foreground hover:text-primary transition-colors duration-300"
+            className="md:hidden p-2 min-w-[48px] min-h-[48px] flex items-center justify-center text-foreground hover:text-primary transition-colors duration-300"
             whileTap={{ scale: 0.9 }}
             aria-label={isOpen ? "Close navigation menu" : "Open navigation menu"}
             aria-expanded={isOpen}

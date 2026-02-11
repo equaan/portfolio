@@ -109,11 +109,11 @@ export const Projects = () => {
                       href={project.github}
                       target="_blank"
                       rel="noopener noreferrer"
-                      aria-label={`View ${project.title} on GitHub`}
+                      aria-label={`View ${project.title} source code on GitHub`}
                       whileHover={{ scale: 1.1 }}
                       whileTap={{ scale: 0.95 }}
                       transition={{ duration: 0.2 }}
-                      className="p-3 min-w-[48px] min-h-[48px] flex items-center justify-center rounded-lg border border-border hover:border-primary/50 hover:text-primary transition-all duration-300"
+                      className="p-2 min-w-[48px] min-h-[48px] flex items-center justify-center rounded-lg border border-border hover:border-primary/50 hover:text-primary transition-all duration-300"
                     >
                       <Github className="w-5 h-5" />
                     </motion.a>
