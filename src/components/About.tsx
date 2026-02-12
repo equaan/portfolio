@@ -1,33 +1,17 @@
-import { motion, type Transition } from 'framer-motion';
 import { User, MapPin, Briefcase, GraduationCap } from 'lucide-react';
 
-const smoothTransition: Transition = {
-  duration: 0.7,
-  ease: [0.16, 1, 0.3, 1] as const,
-};
+const infoItems = [
+  { icon: User, label: 'name', value: 'Mohammad Equaan Kacchi' },
+  { icon: Briefcase, label: 'role', value: 'Aspiring DevOps Engineer' },
+  { icon: MapPin, label: 'location', value: 'Mumbai, India' },
+  { icon: GraduationCap, label: 'status', value: 'Seeking Internship' },
+];
 
-const staggerContainer = {
-  hidden: { opacity: 0 },
-  visible: {
-    opacity: 1,
-    transition: {
-      staggerChildren: 0.15,
-      delayChildren: 0.1,
-    },
-  },
-};
-
-const fadeInUp = {
-  hidden: { opacity: 0, y: 25 },
-  visible: { 
-    opacity: 1, 
-    y: 0,
-    transition: {
-      duration: 0.5,
-      ease: "easeOut" as const,
-    },
-  },
-};
+const stats = [
+  { value: '🎯', label: 'Seeking Internship' },
+  { value: '📚', label: 'Always Learning' },
+  { value: '💡', label: 'Problem Solver' },
+];
 
 export const About = () => {
   return (
@@ -35,106 +19,45 @@ export const About = () => {
       <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_bottom_right,_hsl(142_70%_50%_/_0.03)_0%,_transparent_50%)]" />
       
       <div className="container mx-auto px-4 relative">
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: "-100px" }}
-          transition={{ duration: 0.7, ease: "easeOut" }}
-          className="text-center mb-16"
-        >
-          <motion.div 
-            initial={{ opacity: 0, scale: 0.9 }}
-            whileInView={{ opacity: 1, scale: 1 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.5, ease: "easeOut", delay: 0.1 }}
-            className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-accent/30 bg-card/50 mb-6"
-          >
+        <div className="text-center mb-16 animate-fade-in">
+          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-accent/30 bg-card/50 mb-6">
             <code className="text-sm text-muted-foreground">whoami</code>
             <span className="text-accent font-mono">--verbose</span>
-          </motion.div>
+          </div>
           <h2 className="text-3xl md:text-4xl font-bold font-mono mb-4">
             About <span className="text-gradient">Me</span>
           </h2>
-        </motion.div>
+        </div>
 
         <div className="grid lg:grid-cols-2 gap-12 items-center">
           {/* Terminal-style info card */}
-          <motion.div
-            initial={{ opacity: 0, x: -40 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true, margin: "-50px" }}
-            transition={{ duration: 0.8, ease: "easeOut" }}
-            className="relative"
-          >
+          <div className="relative animate-fade-in" style={{ animationDelay: '0.1s' }}>
             <div className="rounded-xl border border-border bg-card overflow-hidden">
               {/* Terminal header */}
               <div className="flex items-center gap-2 px-4 py-3 bg-muted/50 border-b border-border">
-                <motion.div 
-                  className="w-3 h-3 rounded-full bg-destructive/60"
-                  whileHover={{ scale: 1.2 }}
-                  transition={{ duration: 0.2 }}
-                />
-                <motion.div 
-                  className="w-3 h-3 rounded-full bg-terminal-yellow/60"
-                  whileHover={{ scale: 1.2 }}
-                  transition={{ duration: 0.2 }}
-                />
-                <motion.div 
-                  className="w-3 h-3 rounded-full bg-terminal-green/60"
-                  whileHover={{ scale: 1.2 }}
-                  transition={{ duration: 0.2 }}
-                />
+                <div className="w-3 h-3 rounded-full bg-destructive/60" />
+                <div className="w-3 h-3 rounded-full bg-terminal-yellow/60" />
+                <div className="w-3 h-3 rounded-full bg-terminal-green/60" />
                 <span className="ml-2 text-xs text-muted-foreground font-mono">about.sh</span>
               </div>
               
               {/* Terminal content */}
-              <motion.div 
-                className="p-6 font-mono text-sm space-y-4"
-                variants={staggerContainer}
-                initial="hidden"
-                whileInView="visible"
-                viewport={{ once: true }}
-              >
-                <motion.div variants={fadeInUp} className="flex items-start gap-3">
-                  <User className="w-5 h-5 text-primary mt-0.5" aria-hidden="true" />
-                  <div>
-                    <span className="text-muted-foreground">name:</span>
-                    <span className="text-foreground ml-2">Mohammad Equaan Kacchi</span>
+              <div className="p-6 font-mono text-sm space-y-4">
+                {infoItems.map((item) => (
+                  <div key={item.label} className="flex items-start gap-3">
+                    <item.icon className="w-5 h-5 text-primary mt-0.5" aria-hidden="true" />
+                    <div>
+                      <span className="text-muted-foreground">{item.label}:</span>
+                      <span className="text-foreground ml-2">{item.value}</span>
+                    </div>
                   </div>
-                </motion.div>
-                <motion.div variants={fadeInUp} className="flex items-start gap-3">
-                  <Briefcase className="w-5 h-5 text-primary mt-0.5" aria-hidden="true" />
-                  <div>
-                    <span className="text-muted-foreground">role:</span>
-                    <span className="text-foreground ml-2">Aspiring DevOps Engineer</span>
-                  </div>
-                </motion.div>
-                <motion.div variants={fadeInUp} className="flex items-start gap-3">
-                  <MapPin className="w-5 h-5 text-primary mt-0.5" aria-hidden="true" />
-                  <div>
-                    <span className="text-muted-foreground">location:</span>
-                    <span className="text-foreground ml-2">Mumbai, India</span>
-                  </div>
-                </motion.div>
-                <motion.div variants={fadeInUp} className="flex items-start gap-3">
-                  <GraduationCap className="w-5 h-5 text-primary mt-0.5" aria-hidden="true" />
-                  <div>
-                    <span className="text-muted-foreground">status:</span>
-                    <span className="text-foreground ml-2">Seeking Internship</span>
-                  </div>
-                </motion.div>
-              </motion.div>
+                ))}
+              </div>
             </div>
-          </motion.div>
+          </div>
 
           {/* Description */}
-          <motion.div
-            initial={{ opacity: 0, x: 40 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true, margin: "-50px" }}
-            transition={{ duration: 0.8, ease: "easeOut" }}
-            className="space-y-6"
-          >
+          <div className="space-y-6 animate-fade-in" style={{ animationDelay: '0.2s' }}>
             <p className="text-lg text-muted-foreground leading-relaxed">
               I'm Mohammad Equaan Kacchi, an enthusiastic beginner diving into the world of DevOps. 
               My journey started with a curiosity about how things work behind the scenes, and it led me 
@@ -151,30 +74,18 @@ export const About = () => {
             </p>
 
             {/* Stats */}
-            <motion.div 
-              className="grid grid-cols-3 gap-4 pt-6"
-              variants={staggerContainer}
-              initial="hidden"
-              whileInView="visible"
-              viewport={{ once: true }}
-            >
-              {[
-                { value: '🎯', label: 'Seeking Internship' },
-                { value: '📚', label: 'Always Learning' },
-                { value: '💡', label: 'Problem Solver' },
-              ].map((stat) => (
-                <motion.div 
+            <div className="grid grid-cols-3 gap-4 pt-6">
+              {stats.map((stat) => (
+                <div 
                   key={stat.label} 
-                  variants={fadeInUp}
-                  whileHover={{ scale: 1.05, transition: { duration: 0.3 } }}
                   className="text-center p-4 rounded-lg bg-card border border-border hover:border-primary/30 transition-colors duration-500"
                 >
                   <div className="text-2xl font-bold text-gradient font-mono">{stat.value}</div>
                   <div className="text-xs text-muted-foreground mt-1">{stat.label}</div>
-                </motion.div>
+                </div>
               ))}
-            </motion.div>
-          </motion.div>
+            </div>
+          </div>
         </div>
       </div>
     </section>
