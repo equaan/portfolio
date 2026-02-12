@@ -1,4 +1,3 @@
-import { motion } from 'framer-motion';
 import { Github, Cloud, Container } from 'lucide-react';
 
 const projects = [
@@ -18,75 +17,33 @@ const projects = [
   },
 ];
 
-const containerVariants = {
-  hidden: { opacity: 0 },
-  visible: {
-    opacity: 1,
-    transition: {
-      staggerChildren: 0.15,
-      delayChildren: 0.2,
-    },
-  },
-};
-
-const itemVariants = {
-  hidden: { opacity: 0, y: 40 },
-  visible: { 
-    opacity: 1, 
-    y: 0,
-    transition: {
-      duration: 0.6,
-      ease: "easeOut" as const,
-    }
-  },
-};
-
 export const Projects = () => {
   return (
     <section id="projects" className="py-24 relative">
       <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_hsl(175_80%_50%_/_0.03)_0%,_transparent_50%)]" />
       
       <div className="container mx-auto px-4 relative">
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: "-100px" }}
-          transition={{ duration: 0.6, ease: "easeOut" }}
-          className="text-center mb-16"
-        >
-          <motion.div 
-            initial={{ opacity: 0, scale: 0.9 }}
-            whileInView={{ opacity: 1, scale: 1 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.5, ease: "easeOut", delay: 0.1 }}
-            className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-primary/30 bg-card/50 mb-6"
-          >
+        <div className="text-center mb-16 animate-fade-in">
+          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-primary/30 bg-card/50 mb-6">
             <code className="text-sm text-muted-foreground">ls -la</code>
             <span className="text-primary font-mono">./projects</span>
-          </motion.div>
+          </div>
           <h2 className="text-3xl md:text-4xl font-bold font-mono mb-4">
             Featured <span className="text-gradient">Projects</span>
           </h2>
           <p className="text-muted-foreground max-w-2xl mx-auto">
             A selection of infrastructure and automation projects I've worked on
           </p>
-        </motion.div>
+        </div>
 
-        <motion.div
-          variants={containerVariants}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, margin: "-50px" }}
-          className="grid md:grid-cols-2 gap-6"
-        >
+        <div className="grid md:grid-cols-2 gap-6">
           {projects.map((project, index) => (
-            <motion.div
+            <div
               key={project.title}
-              variants={itemVariants}
-              whileHover={{ y: -8, transition: { duration: 0.4, ease: "easeOut" } }}
-              className="group relative"
+              className="group relative animate-fade-in"
+              style={{ animationDelay: `${0.1 + index * 0.1}s` }}
             >
-              <div className="h-full rounded-xl border border-border bg-card/50 backdrop-blur-sm overflow-hidden hover:border-primary/50 hover:shadow-[0_0_40px_hsl(175_80%_50%_/_0.1)] transition-all duration-500">
+              <div className="h-full rounded-xl border border-border bg-card/50 overflow-hidden hover:border-primary/50 hover:shadow-[0_0_40px_hsl(175_80%_50%_/_0.1)] transition-all duration-500">
                 {/* Header */}
                 <div className="flex items-center gap-2 px-4 py-3 bg-muted/30 border-b border-border">
                   <div className="w-3 h-3 rounded-full bg-destructive/60" />
@@ -98,25 +55,18 @@ export const Projects = () => {
                 {/* Content */}
                 <div className="p-6">
                   <div className="flex items-start justify-between mb-4">
-                    <motion.div 
-                      className="w-12 h-12 rounded-lg bg-primary/10 flex items-center justify-center group-hover:bg-primary/20 transition-colors duration-500"
-                      whileHover={{ rotate: 5, scale: 1.05 }}
-                      transition={{ duration: 0.3 }}
-                    >
+                    <div className="w-12 h-12 rounded-lg bg-primary/10 flex items-center justify-center group-hover:bg-primary/20 transition-colors duration-500">
                       <project.icon className="w-6 h-6 text-primary" aria-hidden="true" />
-                    </motion.div>
-                    <motion.a
+                    </div>
+                    <a
                       href={project.github}
                       target="_blank"
                       rel="noopener noreferrer"
                       aria-label={`View ${project.title} source code on GitHub`}
-                      whileHover={{ scale: 1.1 }}
-                      whileTap={{ scale: 0.95 }}
-                      transition={{ duration: 0.2 }}
                       className="p-2 min-w-[48px] min-h-[48px] flex items-center justify-center rounded-lg border border-border hover:border-primary/50 hover:text-primary transition-all duration-300"
                     >
                       <Github className="w-5 h-5" />
-                    </motion.a>
+                    </a>
                   </div>
 
                   <h3 className="text-xl font-bold font-mono mb-3 text-foreground group-hover:text-gradient transition-all duration-500">
@@ -128,24 +78,20 @@ export const Projects = () => {
 
                   {/* Tech tags */}
                   <div className="flex flex-wrap gap-2">
-                    {project.tech.map((tech, techIndex) => (
-                      <motion.span
+                    {project.tech.map((tech) => (
+                      <span
                         key={tech}
-                        initial={{ opacity: 0, scale: 0.8 }}
-                        whileInView={{ opacity: 1, scale: 1 }}
-                        viewport={{ once: true }}
-                        transition={{ delay: 0.1 * techIndex, duration: 0.3 }}
                         className="px-3 py-1 text-xs font-mono rounded-full bg-primary/10 text-primary border border-primary/20"
                       >
                         {tech}
-                      </motion.span>
+                      </span>
                     ))}
                   </div>
                 </div>
               </div>
-            </motion.div>
+            </div>
           ))}
-        </motion.div>
+        </div>
       </div>
     </section>
   );
