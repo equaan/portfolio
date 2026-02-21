@@ -3,8 +3,8 @@ import { motion } from 'framer-motion';
 import { Terminal, ChevronRight, Download } from 'lucide-react';
 
 const roles = [
-  'Aspiring DevOps Engineer',
-  'Cloud Enthusiast',
+  'Cloud Services Intern',
+  'DevOps Enthusiast',
   'Automation Learner',
 ];
 
@@ -102,8 +102,8 @@ export const Hero = () => {
           <p 
             className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto mb-12 leading-relaxed"
           >
-            A passionate beginner exploring the world of DevOps, cloud infrastructure, and automation. 
-            Currently seeking internship opportunities to learn and grow in this exciting field.
+            Cloud Services Intern at Opt IT Technologies, exploring DevOps, cloud infrastructure, and automation.
+            Building real-world experience in cloud services and eager to grow in this exciting field.
           </p>
 
           <motion.div

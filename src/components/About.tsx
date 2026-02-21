@@ -106,7 +106,7 @@ export const About = () => {
                   <Briefcase className="w-5 h-5 text-primary mt-0.5" aria-hidden="true" />
                   <div>
                     <span className="text-muted-foreground">role:</span>
-                    <span className="text-foreground ml-2">Aspiring DevOps Engineer</span>
+                    <span className="text-foreground ml-2">Intern — Cloud Services @ Opt IT Technologies</span>
                   </div>
                 </motion.div>
                 <motion.div variants={fadeInUp} className="flex items-start gap-3">
@@ -120,7 +120,7 @@ export const About = () => {
                   <GraduationCap className="w-5 h-5 text-primary mt-0.5" aria-hidden="true" />
                   <div>
                     <span className="text-muted-foreground">status:</span>
-                    <span className="text-foreground ml-2">Seeking Internship</span>
+                    <span className="text-foreground ml-2">Currently Interning</span>
                   </div>
                 </motion.div>
               </motion.div>
@@ -136,18 +136,18 @@ export const About = () => {
             className="space-y-6"
           >
             <p className="text-lg text-muted-foreground leading-relaxed">
-              I'm Mohammad Equaan Kacchi, an enthusiastic beginner diving into the world of DevOps. 
+              I'm Mohammad Equaan Kacchi, a Cloud Services Intern at Opt IT Technologies. 
               My journey started with a curiosity about how things work behind the scenes, and it led me 
               to the fascinating world of cloud infrastructure and automation.
             </p>
             <p className="text-lg text-muted-foreground leading-relaxed">
-              I'm currently learning CI/CD pipelines, container technologies like Docker and Kubernetes, 
+              I'm currently working with CI/CD pipelines, container technologies like Docker and Kubernetes, 
               and cloud platforms like AWS. I believe in the philosophy of "automate everything" and I'm 
-              eager to apply my skills in a real-world environment through an internship.
+              applying my skills in a real-world environment at my internship.
             </p>
             <p className="text-lg text-muted-foreground leading-relaxed">
-              Based in Mumbai, India, I'm actively seeking internship opportunities where I can learn from 
-              experienced professionals and contribute to meaningful projects while growing my DevOps expertise.
+              Based in Mumbai, India, I'm gaining hands-on experience working with experienced professionals 
+              and contributing to meaningful projects while growing my DevOps expertise.
             </p>
 
             {/* Stats */}
@@ -159,7 +159,7 @@ export const About = () => {
               viewport={{ once: true }}
             >
               {[
-                { value: '🎯', label: 'Seeking Internship' },
+                { value: '🚀', label: 'Currently Interning' },
                 { value: '📚', label: 'Always Learning' },
                 { value: '💡', label: 'Problem Solver' },
               ].map((stat) => (
