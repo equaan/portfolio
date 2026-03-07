@@ -14,7 +14,7 @@ export default defineConfig(({ mode }) => ({
   base: "/portfolio/", 
   // END OF CHANGE
   
-  plugins: [react(), mode === "development" && componentTagger()].filter(Boolean),
+  plugins: [react(), cssInjectedByJsPlugin(), mode === "development" && componentTagger()].filter(Boolean),
   resolve: {
     alias: {
       "@": path.resolve(__dirname, "./src"),
