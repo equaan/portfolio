@@ -9,11 +9,11 @@ const experiences = [
     startDate: 'Feb 2025',
     endDate: 'Present',
     description:
-      'Building Internal Developer Platform (IDP) tooling using Backstage.io by Spotify — learning service catalogues, software templates, and automating cloud infrastructure provisioning workflows.',
+      'Building IDP tooling with Backstage.io — creating software templates to automate cloud infrastructure provisioning and streamline developer workflows.',
     highlights: [
-      'Built a Backstage template that takes client details (name, environment, etc.) via a form, creates a GitHub repo, and pushes Terraform files for VPC, S3, RDS & EKS along with GitHub Actions workflows to provision resources automatically',
-      'Developed a template-driven workflow that lets users select desired components (IaC for AWS, CI/CD pipelines, Ansible playbooks) and fetches them from a centralized company repository to push into client-specific GitHub repos',
-      'Explored Backstage service catalogue for registering and managing internal services',
+      'Built Backstage templates that scaffold GitHub repos with Terraform (VPC, S3, RDS, EKS) and auto-trigger provisioning via GitHub Actions',
+      'Developed a template to selectively fetch IaC, CI/CD & Ansible configs from a centralized repo and push to client repositories',
+      'Learned Backstage service catalogue for internal service discovery and management',
     ],
   },
 ];
