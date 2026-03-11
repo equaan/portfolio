@@ -9,11 +9,11 @@ const experiences = [
     startDate: 'Feb 2025',
     endDate: 'Present',
     description:
-      'Working on cloud infrastructure and services, gaining hands-on experience with cloud platforms, automation tools, and DevOps practices in a professional environment.',
+      'Building Internal Developer Platform (IDP) tooling using Backstage.io by Spotify — learning service catalogues, software templates, and automating cloud infrastructure provisioning workflows.',
     highlights: [
-      'Cloud infrastructure management & provisioning',
-      'Working with CI/CD pipelines and automation',
-      'Collaborating with engineering teams on real-world projects',
+      'Built a Backstage template that takes client details (name, environment, etc.) via a form, creates a GitHub repo, and pushes Terraform files for VPC, S3, RDS & EKS along with GitHub Actions workflows to provision resources automatically',
+      'Developed a template-driven workflow that lets users select desired components (IaC for AWS, CI/CD pipelines, Ansible playbooks) and fetches them from a centralized company repository to push into client-specific GitHub repos',
+      'Explored Backstage service catalogue for registering and managing internal services',
     ],
   },
 ];
