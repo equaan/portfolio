@@ -4,16 +4,12 @@ import { Cloud, Container, GitBranch, Server, Shield, Terminal, Database, Workfl
 const skills = [
   { name: 'AWS', icon: Cloud, category: 'Cloud' },
   { name: 'Docker', icon: Container, category: 'Containers' },
-  // { name: 'Kubernetes', icon: Boxes, category: 'Orchestration' },
   { name: 'Terraform', icon: Server, category: 'IaC' },
+  { name: 'Ansible', icon: Cpu, category: 'Config Mgmt' },
+  { name: 'Backstage.io', icon: Boxes, category: 'IDP' },
   { name: 'CI/CD', icon: Workflow, category: 'Automation' },
   { name: 'GitHub Actions', icon: GitBranch, category: 'CI/CD' },
   { name: 'Linux', icon: Terminal, category: 'Systems' },
-  // { name: 'Monitoring', icon: MonitorCheck, category: 'Observability' },
-  // { name: 'Security', icon: Shield, category: 'DevSecOps' },
-  // { name: 'Databases', icon: Database, category: 'Data' },
-  { name: 'Ansible', icon: Cpu, category: 'Config' },
-  // { name: 'Vault', icon: Lock, category: 'Secrets' },
 ];
 
 const containerVariants = {
