@@ -1,9 +1,10 @@
 import { motion } from 'framer-motion';
-import { Mail, Github, Linkedin } from 'lucide-react';
+import { Mail, Github, Linkedin, BookOpen } from 'lucide-react';
 
 const socialLinks = [
   { icon: Github, href: 'https://github.com/equaan', label: 'GitHub' },
   { icon: Linkedin, href: 'https://linkedin.com/in/equaan-devops', label: 'LinkedIn' },
+  { icon: BookOpen, href: 'https://medium.com/@equaankacchi367', label: 'Medium' },
   { icon: Mail, href: 'mailto:equaankacchi367@gmail.com', label: 'Email' },
 ];
 
