@@ -1,98 +1,82 @@
+## Goal
 
-
-# SEO Fix Plan for Google Search Console
-
-## Summary
-Fix your sitemap and robots.txt configuration so Google Search Console can properly fetch and index your portfolio site.
-
----
-
-## Changes Required
-
-### 1. Move sitemap.xml to public folder
-Move `sitemap.xml` from the root directory into the `public/` folder so it gets deployed with your site.
-
-**After this change, your sitemap will be accessible at:**
-`https://equaan.github.io/portfolio/sitemap.xml`
+Two deliverables:
+1. Update the **Experience** section on the portfolio with a concise, ideal-length entry for the Opt IT internship (Feb 19 – Apr 19, 2025).
+2. Create a root-level markdown file with full project context + a ready-to-paste **Experience for Resume** block.
 
 ---
 
-### 2. Update public/robots.txt
-Update the robots.txt in the public folder to include the correct sitemap URL:
+## 1. Update `src/components/Experience.tsx`
+
+Replace the existing single entry with an updated, tighter version. Keep the same visual structure (timeline card, role/company/dates/location, description, 3–4 bullet highlights — matching the "ideal size" most portfolios use).
+
+**New entry content:**
+- Role: `Cloud Services Intern`
+- Company: `Opt IT Technologies`
+- Location: `India`
+- Dates: `Feb 2025 — Apr 2025`
+- Description (1–2 lines): Built an Internal Developer Platform on Backstage.io enabling self-service multi-cloud infrastructure provisioning for client onboarding.
+- Highlights (4 bullets, action-led, concise):
+  - Developed 7+ Backstage scaffolder templates for AWS, Azure, and GCP infrastructure (VPC, S3, RDS, EKS, AKS, GKE) plus CI/CD, Ansible, and observability setups.
+  - Architected a 3-repo system (Backstage app, template catalog, Terraform modules) with version-pinned modules via git tags for reproducible infra.
+  - Built a 7-step client onboarding wizard chaining templates to provision a full cloud stack from a single form submission.
+  - Automated GitOps workflow using Nunjucks templating to render Terraform/IaC files and open pull requests on client GitHub repos.
+
+No other components touched.
+
+---
+
+## 2. Create `INTERNSHIP_NOTES.md` in the project root
+
+Structure:
 
 ```text
-User-agent: Googlebot
-Allow: /
+# Opt IT Technologies — Cloud Services Internship
 
-User-agent: Bingbot
-Allow: /
+## Overview
+- Company, role, duration (Feb 19 – Apr 19, 2025), team context
+- One-paragraph summary of what was built
 
-User-agent: Twitterbot
-Allow: /
+## The Problem
+- Manual Terraform work, repetitive client onboarding, no standardization
 
-User-agent: facebookexternalhit
-Allow: /
+## The Solution: Backstage.io IDP
+- High-level architecture, why Backstage
 
-User-agent: *
-Allow: /
+## Repository Architecture
+### 1. backstage-2nd — Backstage app portal
+### 2. opt-it-catalog — Scaffolder templates (7+ templates listed)
+### 3. opt-it-modules — Version-pinned Terraform modules (git tags)
 
-Sitemap: https://equaan.github.io/portfolio/sitemap.xml
-```
+## End-to-End Workflow
+ASCII flow: Engineer fills form → Backstage runs template.yaml →
+fetches pinned modules → Nunjucks renders skeleton → PR on client repo →
+review & merge → terraform apply
 
----
+## Key Technologies
+Backstage.io, Terraform, Nunjucks, GitHub Actions, AWS, Azure, GCP,
+Ansible, YAML, Git tags for module versioning
 
-### 3. Delete root-level robots.txt
-Remove the `robots.txt` file in the root directory (not in public) since it's not being deployed and causes confusion.
-
----
-
-### 4. Fix Open Graph image URLs
-Update `index.html` to use raw GitHub URLs for the OG images:
-
-**From:**
-```
-https://github.com/equaan/portfolio/blob/main/og-image.png
-```
-
-**To:**
-```
-https://raw.githubusercontent.com/equaan/portfolio/main/og-image.png
-```
+## Skills Gained
+Service catalogue, software templates, IaC, multi-cloud, GitOps,
+PR-based workflows, module versioning
 
 ---
 
-## After Implementation
+# Experience for Resume
 
-Once deployed, submit this URL in Google Search Console's sitemap section:
-```
-https://equaan.github.io/portfolio/sitemap.xml
-```
+**Cloud Services Intern — Opt IT Technologies**  *(Feb 2025 – Apr 2025)*
 
-Or just:
-```
-sitemap.xml
+- Engineered an Internal Developer Platform on Backstage.io, reducing client cloud onboarding time from days to under 30 minutes through self-service form-driven provisioning.
+- Built 7+ scaffolder templates covering AWS, Azure, and GCP infrastructure (VPC, S3, RDS, EKS, AKS, GKE), CI/CD pipelines, Ansible configs, and observability stacks.
+- Designed a 3-repository architecture with git-tag-pinned Terraform modules, enabling reproducible, version-controlled infrastructure across 100% of client deployments.
+- Automated a GitOps workflow using Nunjucks templating that renders IaC files and opens pull requests on client GitHub repos, eliminating manual Terraform boilerplate.
 ```
 
-(Since your property is set to `https://equaan.github.io/portfolio/`)
+Numbers above (days→30 min, 100%) are illustrative — flagged in the file with a note so the user can replace with real figures before pasting into their resume.
 
 ---
 
-## Technical Details
-
-| File | Action | Reason |
-|------|--------|--------|
-| `sitemap.xml` → `public/sitemap.xml` | Move | Vite only deploys files from `public/` to `dist/` |
-| `public/robots.txt` | Update | Add Sitemap directive with correct URL |
-| `robots.txt` (root) | Delete | Not deployed, causes confusion |
-| `index.html` | Update | Fix OG image URLs for social sharing |
-
-### File Structure After Fix
-```text
-public/
-├── favicon.ico
-├── placeholder.svg
-├── resume.pdf
-├── robots.txt      ← Updated with Sitemap directive
-└── sitemap.xml     ← Moved here
-```
-
+## Files touched
+- `src/components/Experience.tsx` (edit)
+- `INTERNSHIP_NOTES.md` (create at project root)
