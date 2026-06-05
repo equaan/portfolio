@@ -1,7 +1,14 @@
 import { motion } from 'framer-motion';
-import { Github, Cloud, Container } from 'lucide-react';
+import { Github, Cloud, Container, Layers } from 'lucide-react';
 
 const projects = [
+  {
+    title: 'Backstage IDP for Multi-Cloud Provisioning',
+    description: 'Internal Developer Platform built on Backstage.io with 7+ scaffolder templates for AWS, Azure & GCP infrastructure. A 3-repo system (portal, template catalog, git-tag-pinned Terraform modules) renders IaC via Nunjucks and opens PRs on client GitHub repos for a fully GitOps onboarding flow.',
+    tech: ['Backstage.io', 'Terraform', 'Nunjucks', 'GitHub Actions', 'AWS', 'Azure', 'GCP'],
+    icon: Layers,
+    github: 'https://github.com/equaan/opt-it-catalog',
+  },
   {
     title: 'Cloud Cost Optimization Engine',
     description: 'Automated Jenkins build log archival to Amazon S3 using Shell scripting and AWS CLI, achieving ~50% reduction in log storage costs by replacing expensive EBS storage with lifecycle-managed S3 buckets.',
