@@ -80,7 +80,7 @@ export const Hero = () => {
             <span className="text-terminal-green text-sm">ready</span>
           </motion.div>
 
-          <motion.h1 
+          <motion.h1
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, ease: "easeOut", delay: 0.15 }}
@@ -88,6 +88,9 @@ export const Hero = () => {
           >
             <span className="text-foreground">Hi, I'm </span>
             <span className="text-gradient">Equaan</span>
+            <span className="block mt-2 text-2xl md:text-3xl lg:text-4xl text-muted-foreground">
+              — DevOps & Cloud Engineer
+            </span>
           </motion.h1>
 
           <motion.div 
