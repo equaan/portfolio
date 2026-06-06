@@ -3,9 +3,9 @@ import { motion } from 'framer-motion';
 import { Terminal, ChevronRight, Download } from 'lucide-react';
 
 const roles = [
-  'Cloud Services Intern',
-  'DevOps Enthusiast',
-  'Automation Learner',
+  'Aspiring DevOps Engineer',
+  'Cloud & Automation Enthusiast',
+  'Open to DevOps Roles',
 ];
 
 export const TypingAnimation = () => {
@@ -102,8 +102,8 @@ export const Hero = () => {
           <p 
             className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto mb-12 leading-relaxed"
           >
-            Cloud Services Intern at Opt IT Technologies, exploring DevOps, cloud infrastructure, and automation.
-            Building real-world experience in cloud services and eager to grow in this exciting field.
+            Recently completed a Cloud Services internship at Opt IT Technologies (Feb–Apr 2025), where I built an Internal Developer Platform on Backstage.io.
+            Now actively seeking full-time DevOps & Cloud Engineering roles.
           </p>
 
           <motion.div
