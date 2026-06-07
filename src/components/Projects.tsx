@@ -1,13 +1,24 @@
 import { motion } from 'framer-motion';
-import { Github, Cloud, Container, Layers } from 'lucide-react';
+import { Link } from 'react-router-dom';
+import { Github, Cloud, Container, Layers, FileText } from 'lucide-react';
 
-const projects = [
+type Project = {
+  title: string;
+  description: string;
+  tech: string[];
+  icon: typeof Layers;
+  github: string;
+  caseStudy?: string;
+};
+
+const projects: Project[] = [
   {
     title: 'Backstage IDP for Multi-Cloud Provisioning',
     description: 'Internal Developer Platform built on Backstage.io with 7+ scaffolder templates for AWS, Azure & GCP infrastructure. A 3-repo system (portal, template catalog, git-tag-pinned Terraform modules) renders IaC via Nunjucks and opens PRs on client GitHub repos for a fully GitOps onboarding flow.',
     tech: ['Backstage.io', 'Terraform', 'Nunjucks', 'GitHub Actions', 'AWS', 'Azure', 'GCP'],
     icon: Layers,
     github: 'https://github.com/equaan/opt-it-catalog',
+    caseStudy: '/projects/backstage-idp',
   },
   {
     title: 'Cloud Cost Optimization Engine',
@@ -112,18 +123,29 @@ export const Projects = () => {
                     >
                       <project.icon className="w-6 h-6 text-primary" aria-hidden="true" />
                     </motion.div>
-                    <motion.a
-                      href={project.github}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      aria-label={`View ${project.title} source code on GitHub`}
-                      whileHover={{ scale: 1.1 }}
-                      whileTap={{ scale: 0.95 }}
-                      transition={{ duration: 0.2 }}
-                      className="p-2 min-w-[48px] min-h-[48px] flex items-center justify-center rounded-lg border border-border hover:border-primary/50 hover:text-primary transition-all duration-300"
-                    >
-                      <Github className="w-5 h-5" />
-                    </motion.a>
+                    <div className="flex items-center gap-2">
+                      {project.caseStudy && (
+                        <Link
+                          to={project.caseStudy}
+                          aria-label={`Read the ${project.title} case study`}
+                          className="p-2 min-w-[48px] min-h-[48px] flex items-center justify-center rounded-lg border border-border hover:border-primary/50 hover:text-primary transition-all duration-300"
+                        >
+                          <FileText className="w-5 h-5" />
+                        </Link>
+                      )}
+                      <motion.a
+                        href={project.github}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        aria-label={`View ${project.title} source code on GitHub`}
+                        whileHover={{ scale: 1.1 }}
+                        whileTap={{ scale: 0.95 }}
+                        transition={{ duration: 0.2 }}
+                        className="p-2 min-w-[48px] min-h-[48px] flex items-center justify-center rounded-lg border border-border hover:border-primary/50 hover:text-primary transition-all duration-300"
+                      >
+                        <Github className="w-5 h-5" />
+                      </motion.a>
+                    </div>
                   </div>
 
                   <h3 className="text-xl font-bold font-mono mb-3 text-foreground group-hover:text-gradient transition-all duration-500">

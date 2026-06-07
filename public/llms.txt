@@ -11,3 +11,7 @@
 - [Projects](/#projects): Selected DevOps and Cloud projects with GitHub links.
 - [Certifications](/#certifications): Cloud and DevOps certifications.
 - [Contact](/#contact): Email and social links for hiring, collaboration, or tech chats.
+
+## Case Studies
+
+- [Backstage IDP for Multi-Cloud Provisioning](/projects/backstage-idp): Technical deep-dive on building an Internal Developer Platform with Backstage.io, Terraform, and a GitOps PR workflow across AWS, Azure, and GCP.
