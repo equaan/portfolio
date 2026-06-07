@@ -1,0 +1,13 @@
+# Equaan — DevOps & Cloud Engineer Portfolio
+
+> Portfolio of Mohammad Equaan Kacchi, an aspiring DevOps & Cloud Engineer focused on AWS, Kubernetes, Terraform, CI/CD, and GitOps. Open to full-time DevOps and Cloud Engineering roles.
+
+## Pages
+
+- [Home](/): Hero introduction, current status, and CV download.
+- [About](/#about): Background, terminal-style profile card, and stats.
+- [Experience](/#experience): Cloud Services internship at Opt IT Technologies (Feb–Apr 2025) building an Internal Developer Platform on Backstage.io.
+- [Skills](/#skills): Technical stack — AWS, Kubernetes, Docker, Terraform, Linux, Python, CI/CD, GitOps.
+- [Projects](/#projects): Selected DevOps and Cloud projects with GitHub links.
+- [Certifications](/#certifications): Cloud and DevOps certifications.
+- [Contact](/#contact): Email and social links for hiring, collaboration, or tech chats.
