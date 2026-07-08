@@ -107,6 +107,10 @@ export const CommandPalette = () => {
   return (
     <>
       <CommandDialog open={open} onOpenChange={setOpen}>
+        <VisuallyHidden>
+          <DialogTitle>Command palette</DialogTitle>
+          <DialogDescription>Navigate the portfolio, run commands, and open external links.</DialogDescription>
+        </VisuallyHidden>
         <div className="flex items-center gap-2 px-3 pt-3 font-mono text-xs text-muted-foreground">
           <span className="text-primary">~/portfolio</span>
           <span>$</span>
