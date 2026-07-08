@@ -1,56 +1,181 @@
 ## Goal
 
-1. Reframe the site as "Aspiring DevOps Engineer, open to roles" everywhere it currently says you're still interning.
-2. Link your Google Search Console connection to this project, pull Core Web Vitals / page-experience data for `https://equaan.github.io/portfolio/`, and fix what it flags.
+Add three interconnected features that make the portfolio feel like it was built *by* a DevOps engineer, not just themed like one:
+
+1. **Trace Request** — the signature feature. A `▶ Trace Request` button animates a request through the site's real infrastructure, lighting up each node with an engineering-focused tooltip.
+2. **Terminal Command Palette** — `⌘K` / `Ctrl+K` opens a terminal-styled palette to navigate anywhere, download the CV, open external links, and trigger the trace.
+3. **Hero Status Bar** — a subtle, production-grade strip showing build status, last deploy, and version. Live-first from GitHub API, with silent static fallback.
+
+The primary hero focus stays the headline. Status bar is secondary. Trace Request is the standout interaction.
+
+Skipped from the brainstorm (with reasons in chat): visitor counter, voice chatbot, literal helmet reveal, metro map, page-level interactive AWS diagram. Cursor scanner reveal deferred to a possible round 2 after these land.
 
 ---
 
-## Part 1 — Copy updates (post-internship)
+## 1. Trace Request
 
-### `src/components/Hero.tsx`
-- Typing roles → `['Aspiring DevOps Engineer', 'Cloud & Automation Enthusiast', 'Open to DevOps Roles']`
-- Sub-paragraph → "Recently completed a Cloud Services internship at Opt IT Technologies (Feb–Apr 2025), where I built an Internal Developer Platform on Backstage.io. Now actively seeking full-time DevOps / Cloud Engineering roles."
+### Nodes (accurate to the real stack, 6 nodes)
 
-### `src/components/About.tsx`
-- Terminal card:
-  - `role:` → `Aspiring DevOps Engineer`
-  - `status:` → `Open to opportunities`
-- Description paragraphs rewritten in past tense for the internship and forward-looking for what you're doing now (learning, building, job hunting).
-- Stats tile: `Currently Interning` → `Open to Roles`.
+```text
+Browser
+  ↓  DNS Resolution
+  ↓  GitHub Pages (Static Hosting)
+  ↓  React Router
+  ↓  Portfolio Application
+  ↓  Projects / Case Studies
+```
 
-### `src/components/Contact.tsx`
-- "internship opportunity" → "opportunity / role"
-- "actively seeking internship opportunities" → "actively seeking full-time DevOps & Cloud Engineering roles (also open to contract/freelance)"
+Each node has: a short label, a one-line role description, and a 2–3 line engineering tooltip. Example for GitHub Pages: *"Serves static assets from GitHub's CDN. TLS termination + edge caching. No server runtime — all rendering happens in the browser."*
 
-### `src/components/Experience.tsx`
-- No change to bullets, but already shows Feb–Apr 2025 which now reads correctly as past.
+### Interaction
 
-I will NOT touch Skills, Projects, or Certifications (per project memory).
+- Persistent button top-right of the hero: `▶ Trace Request`. Small, terminal-styled, not competing with CTAs.
+- Also triggerable via command palette (`> trace request`).
+- On click:
+  - A panel/overlay slides in from the right (or drops from top on mobile) with the 6 nodes stacked vertically.
+  - A "packet" (small glowing dot) animates from node to node, ~1.2s per hop, ~7–8s total.
+  - Active node: glows cyan, tooltip fades in, subtle terminal-style typing effect on the description.
+  - Completed nodes: dim green check.
+  - Pending nodes: muted.
+  - `ESC` or click-outside closes it. Button becomes `↻ Trace Again` after completion.
 
----
+### Implementation notes
 
-## Part 2 — Search Console Core Web Vitals
-
-### Step A — Link the connection
-Your Google Search Console connection exists in the workspace but isn't linked to this project yet. I'll link it via `standard_connectors--connect`, which makes `LOVABLE_API_KEY` + `GOOGLE_SEARCH_CONSOLE_API_KEY` available to the sandbox so I can call the gateway.
-
-### Step B — Pull the data
-Heads up on terminology: Search Console doesn't run PageSpeed Insights itself. It exposes the **Core Web Vitals report** (field data from real Chrome users) and the **Page Experience** signals. That's what I'll pull, for both mobile and desktop, for `https://equaan.github.io/portfolio/`. If the property has too little traffic to show CWV data (very common for new portfolios), Search Console will return empty — in that case I'll fall back to the public PageSpeed Insights API (no key required) so you still get an actionable report.
-
-### Step C — Fix what's flagged
-Likely items based on a quick read of the current code, that I'll address regardless of what the report says:
-
-- **Framer Motion weight** — Hero/About/Experience/Contact all import `framer-motion`. It's ~50KB gzipped and is one of the biggest LCP/TBT contributors on the page. I'll either (a) swap the simple fade/slide-in animations to CSS keyframes, or (b) lazy-load `framer-motion` for below-the-fold sections only. Decision based on what the report shows.
-- **LCP image / favicon** — The favicon is loaded from `storage.googleapis.com`; I'll move it into `public/` so it ships from the same origin and isn't blocked by a third-party connection.
-- **Font loading** — Fonts use the `media="print" onload` swap trick already (good). I'll add `rel="preconnect"` for `fonts.googleapis.com` and `fonts.gstatic.com` to shave the first byte.
-- **CLS** — Hero has fixed min-heights already; I'll audit the floating decorative elements and typing animation row for layout shift.
-- **Anything specific Search Console flags** (slow LCP URLs, INP issues, mobile usability) gets fixed page-by-page.
-
-I'll report the before/after for each metric in the final reply.
+- Standalone component `src/components/TraceRequest.tsx`.
+- CSS transforms + `requestAnimationFrame` for the packet motion (no framer-motion dependency for this piece — keeps bundle lean).
+- Reduced-motion: fall back to instant reveal of each node with a 400ms stagger.
+- Accessibility: `role="dialog"`, focus trap, live region announces each active node.
 
 ---
 
-## Out of scope
-- No changes to Skills, Projects, or Certifications.
-- No redesign; only copy + perf fixes.
-- No new pages or routes.
+## 2. Terminal Command Palette
+
+### Trigger
+
+- `⌘K` (macOS) / `Ctrl+K` (Windows/Linux) globally.
+- Also a subtle button in the nav: `⌘K` chip.
+
+### Commands
+
+```text
+goto  home
+goto  about
+goto  experience
+goto  skills
+goto  projects
+goto  certifications
+goto  contact
+open  case-study: backstage-idp
+run   trace-request
+dl    resume.pdf
+open  github
+open  linkedin
+open  email
+```
+
+Filterable as-you-type, arrow-key navigation, Enter to execute, terminal cursor styling.
+
+### Implementation notes
+
+- Use `cmdk` (already available via shadcn `command` component in the project).
+- New component `src/components/CommandPalette.tsx`, mounted once in `Index.tsx`.
+- Global keyboard listener in a small `useCommandPalette` hook.
+- All navigation via `react-router-dom` `useNavigate` + anchor scroll.
+- Styling: monospace, cyan prompt (`~/portfolio $` ), matches existing terminal card language.
+
+---
+
+## 3. Hero Status Bar
+
+### Visual
+
+A single thin strip below the hero CTAs (or above them — TBD in build). Monospace, muted, three cells:
+
+```text
+● portfolio.status: operational   |   build: passing   |   deploy: 3h ago   |   v1.2.0
+```
+
+Small dot on the left uses `--terminal-green` when everything is green, yellow if build failing. Never red — this is a portfolio, not a war room.
+
+### Data source (live-first, silent fallback)
+
+- On mount, `fetch` the GitHub Actions runs endpoint for the `equaan/portfolio` repo (public, no auth needed for public repos):
+  - `https://api.github.com/repos/equaan/portfolio/actions/runs?per_page=1`
+- Read `conclusion` (`success` / `failure`) and `updated_at`.
+- Compute "3h ago" client-side from the timestamp.
+- On any failure (network, rate limit, 4xx/5xx, timeout > 2s): silently use static fallback values baked into the component. No error UI, no layout shift — the fallback renders first and gets replaced only on successful fetch.
+- Version: read from a constant in the component (updated manually on releases), or from `import.meta.env.VITE_APP_VERSION` if we want to wire it into the Vite config later.
+
+### Non-goals
+
+- No animated numbers, no flashy dashboard, no gauge charts. Deliberately understated so it reads as "real ops signal" not "look at me."
+
+---
+
+## Files touched
+
+New:
+
+- `src/components/TraceRequest.tsx`
+- `src/components/CommandPalette.tsx`
+- `src/components/HeroStatusBar.tsx`
+- `src/hooks/useCommandPalette.ts`
+- `src/lib/github-status.ts` (fetch helper with timeout + fallback)
+
+Edited:
+
+- `src/components/Hero.tsx` — add the trace button and status bar; keep the hero uncluttered.
+- `src/pages/Index.tsx` — mount `<CommandPalette />` once.
+- `src/components/Navigation.tsx` — add the `⌘K` hint chip.
+
+Unchanged (per project memory): Skills, Projects card content, Certifications, Contact.
+
+---
+
+## Out of scope for this round
+
+- Cursor scanner reveal — revisit after seeing how the hero reads with the three new features.
+- Interactive AWS-style architecture diagram at page level — the case study already tells that story.
+- New case studies for other projects — content work, not a build task.
+- Any redesign of the metro-map idea — not compatible with the terminal aesthetic without a full rework.
+
+---
+
+## Verification before finishing
+
+- `⌘K` and `Ctrl+K` both open the palette; `ESC` closes it.
+- `run trace-request` from the palette triggers the same animation as the button.
+- Status bar renders instantly with fallback values, then upgrades to live data if the API responds within 2s.
+- Trace Request works with reduced-motion (instant staggered reveal).
+- Lighthouse mobile score stays ≥ 90 (no new render-blocking work, no large deps added).
+- Screenshot the hero via headless browser to confirm the status bar reads as subtle, not flashy.  
+  
+I'd like to ask fro these refinements before  implementation:
+  - Shorten the Trace Request animation to about **4–5 seconds** total.
+  - Rename the CTA to something more inviting, such as **"Trace Portfolio"** or **"Trace Infrastructure"**, while keeping "Trace Request" as the internal concept.
+  - Simplify every tooltip to one concise explanation focused on what happens at that step.
+  - Make the status bar read more naturally: **"System: Operational | CI: Passing | Updated: 3h ago | Release: v2.3"**.
+  - Cache GitHub API responses to reduce unnecessary requests.
+  - End the trace with a satisfying completion state such as **"Request Complete — Thanks for exploring."**
+  - Keep the overlay narrow enough that the hero remains visible on desktop.
+
+one additional feature id like to this round:  
+After executing a command, show it briefly in the terminal style:
+
+```
+
+```
+
+```
+~/portfolio $ trace
+
+Tracing infrastructure...
+
+✓ Complete
+
+~/portfolio $ open github
+
+Opening GitHub...
+```
+
+It's a tiny touch, but it makes the palette feel like a real terminal instead of just a searchable menu, and it reinforces the engineering aesthetic without adding visual clutter.
