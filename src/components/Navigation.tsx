@@ -71,6 +71,22 @@ export const Navigation = () => {
               </motion.a>
             ))}
             
+            {/* Command palette hint */}
+            <motion.button
+              type="button"
+              onClick={() => window.dispatchEvent(new CustomEvent('cmdk:open'))}
+              initial={{ opacity: 0, y: -20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.45, duration: 0.4, ease: "easeOut" }}
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+              aria-label="Open command palette"
+              className="font-mono text-xs px-2.5 py-1.5 border border-border rounded-md text-muted-foreground hover:text-primary hover:border-primary/50 transition-all duration-300 inline-flex items-center gap-1.5"
+            >
+              <kbd className="text-[10px]">⌘</kbd>
+              <kbd className="text-[10px]">K</kbd>
+            </motion.button>
+
             {/* --- FIX #1: Desktop Resume Link --- */}
             <motion.a
               href={`${import.meta.env.BASE_URL}resume.pdf`}
@@ -84,6 +100,7 @@ export const Navigation = () => {
               Resume
             </motion.a>
           </div>
+
 
           {/* Mobile Menu Button */}
           <motion.button

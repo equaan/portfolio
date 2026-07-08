@@ -8,6 +8,7 @@ import { Projects } from '@/components/Projects';
 import { Certifications } from '@/components/Certifications';
 import { Contact } from '@/components/Contact';
 import { Footer } from '@/components/Footer';
+import { CommandPalette } from '@/components/CommandPalette';
 
 const Index = () => {
   return (
@@ -31,6 +32,7 @@ const Index = () => {
         <Contact />
       </main>
       <Footer />
+      <CommandPalette />
     </div>
   );
 };
