@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
-import { Terminal, ChevronRight, Download } from 'lucide-react';
+import { Terminal, ChevronRight, Download, Activity } from 'lucide-react';
+import { HeroStatusBar } from '@/components/HeroStatusBar';
 
 const roles = [
   'Aspiring DevOps Engineer',
