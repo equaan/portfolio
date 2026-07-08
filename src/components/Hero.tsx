@@ -154,7 +154,21 @@ export const Hero = () => {
             {/* --------------------------- */}
             
           </motion.div>
+
+          <HeroStatusBar />
         </motion.div>
+
+        {/* Trace Portfolio floating action — signature interaction */}
+        <button
+          onClick={() => window.dispatchEvent(new CustomEvent('cmdk:trace'))}
+          className="absolute top-24 right-4 md:right-8 z-20 inline-flex items-center gap-2 px-3 py-2 rounded-md border border-primary/40 bg-card/70 backdrop-blur-sm font-mono text-xs text-primary hover:bg-primary/10 hover:border-primary hover:shadow-[0_0_20px_hsl(175_80%_50%_/_0.35)] transition-all"
+          aria-label="Trace a request through the portfolio infrastructure"
+        >
+          <Activity className="w-3.5 h-3.5" aria-hidden="true" />
+          <span className="hidden sm:inline">Trace Portfolio</span>
+          <span className="sm:hidden">Trace</span>
+        </button>
+
 
         {/* Floating elements - using CSS animations for performance */}
         <div className="absolute top-1/4 left-10 w-20 h-20 border border-primary/20 rounded-lg rotate-12 hidden lg:block animate-float" />
