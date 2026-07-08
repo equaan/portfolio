@@ -9,7 +9,6 @@ import {
   CommandList,
 } from "@/components/ui/command";
 import { DialogTitle, DialogDescription } from "@/components/ui/dialog";
-import { VisuallyHidden } from "@radix-ui/react-visually-hidden";
 import { TraceRequest } from "@/components/TraceRequest";
 import {
   Activity,
@@ -107,10 +106,8 @@ export const CommandPalette = () => {
   return (
     <>
       <CommandDialog open={open} onOpenChange={setOpen}>
-        <VisuallyHidden>
-          <DialogTitle>Command palette</DialogTitle>
-          <DialogDescription>Navigate the portfolio, run commands, and open external links.</DialogDescription>
-        </VisuallyHidden>
+        <DialogTitle className="sr-only">Command palette</DialogTitle>
+        <DialogDescription className="sr-only">Navigate the portfolio, run commands, and open external links.</DialogDescription>
         <div className="flex items-center gap-2 px-3 pt-3 font-mono text-xs text-muted-foreground">
           <span className="text-primary">~/portfolio</span>
           <span>$</span>
