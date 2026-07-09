@@ -25,6 +25,7 @@ const Index = () => {
       <Navigation />
       <main>
         <Hero />
+        <InfraScanner />
         <About />
         <Experience />
         <Skills />
