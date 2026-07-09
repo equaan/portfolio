@@ -11,7 +11,7 @@ export default defineConfig(({ mode }) => ({
     port: 8080,
   },
   // START OF CHANGE: Add your repository name here
-  base: "/portfolio/", 
+  base: "/", 
   // END OF CHANGE
   
   plugins: [react(), cssInjectedByJsPlugin(), mode === "development" && componentTagger()].filter(Boolean),
