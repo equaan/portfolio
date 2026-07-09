@@ -152,7 +152,7 @@ const Diagram = ({ system, hoveredId, setHoveredId }: {
           node={n}
           hovered={hoveredId === n.id}
           onHover={() => setHoveredId(n.id)}
-          onLeave={() => setHoveredId((cur) => (cur === n.id ? null : cur))}
+          onLeave={() => setHoveredId(hoveredId === n.id ? null : hoveredId)}
         />
       ))}
     </div>
