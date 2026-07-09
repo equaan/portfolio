@@ -13,4 +13,4 @@ Allow: /
 User-agent: *
 Allow: /
 
-Sitemap: https://equaan.github.io/portfolio/sitemap.xml
+Sitemap: https://equaan.dev/sitemap.xml
