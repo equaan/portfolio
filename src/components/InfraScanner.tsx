@@ -22,28 +22,38 @@ const SYSTEMS: SystemDef[] = [
     label: 'Portfolio',
     log: [
       '$ git push origin main',
-      '→ GitHub Actions: static.yml triggered',
-      '✓ Checkout & install deps',
-      '✓ Vite production build (tree-shake + minify)',
-      '✓ Upload artifact → Pages',
-      '✓ CDN cache refreshed',
-      '✓ Live at equaan.github.io/portfolio',
+      '',
+      '→ GitHub Actions: Portfolio CI',
+      '✓ Checkout repository',
+      '✓ npm ci',
+      '✓ ESLint passed',
+      '✓ TypeScript type check passed',
+      '✓ Production build completed',
+      '',
+      '→ Cloudflare Pages',
+      '✓ Upload build',
+      '✓ Edge deployment complete',
+      '✓ Cache propagated globally',
+      '',
+      '✓ Live at https://equaan.dev',
     ],
     nodes: [
-      { id: 'browser', label: 'Browser',        x: 50, y: 8,  tooltip: 'HTTPS request. TLS handshake, first byte target < 200ms.' },
-      { id: 'dns',     label: 'DNS',            x: 50, y: 26, tooltip: 'Resolves equaan.github.io to GitHub Pages edge IPs.' },
-      { id: 'pages',   label: 'GitHub Pages',   x: 50, y: 46, tooltip: 'Static hosting on GitHub\'s CDN. TLS termination + edge caching. Zero server runtime.' },
-      { id: 'router',  label: 'React Router',   x: 22, y: 70, tooltip: 'Client-side routing. No page refresh between sections.' },
-      { id: 'vite',    label: 'Vite Bundle',    x: 78, y: 70, tooltip: 'Code-split, tree-shaken JS + CSS. Fonts preloaded, images lazy.' },
-      { id: 'app',     label: 'Portfolio App',  x: 50, y: 90, tooltip: 'React 18 + Tailwind. Renders in the browser — no SSR needed here.' },
+      { id: 'dev',    label: 'Developer',        x: 50, y: 6,  tooltip: 'Commits & pushes changes to the portfolio repository.' },
+      { id: 'repo',   label: 'GitHub Repo',      x: 50, y: 22, tooltip: 'Source of truth. Every commit triggers CI and deployment.' },
+      { id: 'ci',     label: 'GitHub Actions',   x: 50, y: 40, tooltip: 'Continuous Integration: installs dependencies, runs ESLint, TypeScript type check, and verifies a production build.' },
+      { id: 'pages',  label: 'Cloudflare Pages', x: 50, y: 58, tooltip: 'Automatically builds and deploys every successful commit from GitHub, serving the static site globally.' },
+      { id: 'cdn',    label: 'Cloudflare Edge',  x: 22, y: 78, tooltip: 'Global CDN caches assets close to visitors for fast loading and low latency.' },
+      { id: 'domain', label: 'equaan.dev',       x: 78, y: 78, tooltip: 'Custom domain managed through Cloudflare DNS with HTTPS enabled.' },
+      { id: 'app',    label: 'Portfolio App',    x: 50, y: 94, tooltip: 'React 18 + Tailwind. Hydrated in the browser after edge delivery.' },
     ],
     edges: [
-      ['browser', 'dns'],
-      ['dns', 'pages'],
-      ['pages', 'router'],
-      ['pages', 'vite'],
-      ['router', 'app'],
-      ['vite', 'app'],
+      ['dev', 'repo'],
+      ['repo', 'ci'],
+      ['ci', 'pages'],
+      ['pages', 'cdn'],
+      ['pages', 'domain'],
+      ['cdn', 'app'],
+      ['domain', 'app'],
     ],
   },
   {
@@ -284,8 +294,8 @@ export const InfraScanner = () => {
             }}
           >
             {system.log.map((line, i) => (
-              <div key={i} className={line.startsWith('✓') ? 'text-terminal-green/90' : line.startsWith('$') ? 'text-primary' : ''}>
-                {line}
+              <div key={i} className={line.startsWith('✓') ? 'text-terminal-green/90' : line.startsWith('$') ? 'text-primary' : line.startsWith('→') ? 'text-foreground/80' : ''}>
+                {line || '\u00A0'}
               </div>
             ))}
           </div>
@@ -295,6 +305,23 @@ export const InfraScanner = () => {
             hover to inspect →
           </div>
         </div>
+
+        {/* Deployment status strip — terminal-styled, subtle */}
+        {system.id === 'portfolio' && (
+          <div className="mt-4 rounded-md border border-border/70 bg-card/40 backdrop-blur-sm px-4 py-3 font-mono text-[11px] text-muted-foreground">
+            <div className="flex items-center gap-2 mb-2 text-[10px] uppercase tracking-wider text-muted-foreground/70">
+              <span className="text-terminal-green">$</span>
+              <span>status --last-deployment</span>
+            </div>
+            <div className="flex flex-wrap gap-x-5 gap-y-1">
+              <span><span className="text-muted-foreground/70">CI:</span> <span className="text-terminal-green">Passing</span></span>
+              <span><span className="text-muted-foreground/70">Hosting:</span> <span className="text-foreground/90">Cloudflare Pages</span></span>
+              <span><span className="text-muted-foreground/70">Domain:</span> <span className="text-primary">equaan.dev</span></span>
+              <span><span className="text-muted-foreground/70">HTTPS:</span> <span className="text-terminal-green">Enabled</span></span>
+              <span><span className="text-muted-foreground/70">CDN:</span> <span className="text-terminal-green">Active</span></span>
+            </div>
+          </div>
+        )}
 
         {/* SR-only architecture list */}
         <ul className="sr-only">
