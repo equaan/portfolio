@@ -105,8 +105,8 @@ export const About = () => {
                 <motion.div variants={fadeInUp} className="flex items-start gap-3">
                   <Briefcase className="w-5 h-5 text-primary mt-0.5" aria-hidden="true" />
                   <div>
-                    <span className="text-muted-foreground">role:</span>
-                    <span className="text-foreground ml-2">Aspiring DevOps Engineer</span>
+                    <span className="text-muted-foreground">focus:</span>
+                    <span className="text-foreground ml-2">DevOps · Cloud · Platform Engineering</span>
                   </div>
                 </motion.div>
                 <motion.div variants={fadeInUp} className="flex items-start gap-3">
@@ -120,7 +120,7 @@ export const About = () => {
                   <GraduationCap className="w-5 h-5 text-primary mt-0.5" aria-hidden="true" />
                   <div>
                     <span className="text-muted-foreground">status:</span>
-                    <span className="text-foreground ml-2">Open to opportunities</span>
+                    <span className="text-foreground ml-2">Final-year student · seeking internships</span>
                   </div>
                 </motion.div>
               </motion.div>
@@ -136,18 +136,19 @@ export const About = () => {
             className="space-y-6"
           >
             <p className="text-lg text-muted-foreground leading-relaxed">
-              I'm Mohammad Equaan Kacchi, an aspiring DevOps Engineer based in Mumbai, India.
-              My journey started with a curiosity about how things work behind the scenes, and it led me
-              to the fascinating world of cloud infrastructure and automation.
+              I'm Mohammad Equaan Kacchi, a final-year Computer Engineering student based in Mumbai, India,
+              passionate about DevOps, Cloud and Platform Engineering. My curiosity about what happens behind the
+              curtain — how apps are built, shipped and kept running — pulled me toward infrastructure and automation.
             </p>
             <p className="text-lg text-muted-foreground leading-relaxed">
-              I recently completed a Cloud Services internship at Opt IT Technologies (Feb–Apr 2025), where I built
-              an Internal Developer Platform on Backstage.io with multi-cloud Terraform templates for AWS, Azure and GCP.
-              I work hands-on with CI/CD pipelines, Docker, Kubernetes, and Linux, and live by the "automate everything" mindset.
+              During a Cloud Services internship at Opt IT Technologies (Feb–Apr 2025), I contributed to an
+              Internal Developer Platform on Backstage.io with multi-cloud Terraform templates for AWS, Azure and GCP.
+              Alongside coursework, I keep building production-style projects with Docker, Kubernetes, CI/CD and Linux
+              to make the theory stick.
             </p>
             <p className="text-lg text-muted-foreground leading-relaxed">
-              I'm now actively seeking full-time DevOps and Cloud Engineering roles where I can keep
-              building reliable infrastructure and growing alongside a strong engineering team.
+              I'm now looking for DevOps, Cloud or Platform Engineering internships where I can learn from an
+              experienced engineering team and contribute to real infrastructure.
             </p>
 
             {/* Stats */}
@@ -159,9 +160,9 @@ export const About = () => {
               viewport={{ once: true }}
             >
               {[
-                { value: '🚀', label: 'Open to Roles' },
+                { value: '🎓', label: 'Final-year Student' },
                 { value: '📚', label: 'Always Learning' },
-                { value: '💡', label: 'Problem Solver' },
+                { value: '💡', label: 'Builder Mindset' },
               ].map((stat) => (
                 <motion.div 
                   key={stat.label} 
