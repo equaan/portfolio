@@ -8,10 +8,11 @@ type Node = {
 };
 
 const NODES: Node[] = [
-  { id: "browser", label: "Browser", detail: "User request originates. TLS handshake initiated." },
-  { id: "dns", label: "DNS Resolution", detail: "equaan.github.io resolved via public DNS." },
-  { id: "gh-pages", label: "GitHub Pages", detail: "Static assets served from GitHub's edge CDN." },
-  { id: "router", label: "React Router", detail: "Client-side route matched under /portfolio/." },
+  { id: "browser", label: "Browser Request", detail: "User navigates to equaan.dev. TLS handshake initiated." },
+  { id: "dns", label: "DNS Resolution", detail: "equaan.dev resolved via Cloudflare DNS." },
+  { id: "edge", label: "Cloudflare Edge", detail: "Nearest edge PoP terminates TLS and serves cached assets." },
+  { id: "pages", label: "Cloudflare Pages", detail: "Static site deployed from GitHub, versioned per commit." },
+  { id: "router", label: "React Router", detail: "Client-side route matched, no page reload." },
   { id: "app", label: "Portfolio App", detail: "React tree hydrated, components rendered." },
   { id: "projects", label: "Projects / Case Studies", detail: "Content ready. Request complete." },
 ];
