@@ -306,6 +306,23 @@ export const InfraScanner = () => {
           </div>
         </div>
 
+        {/* Deployment status strip — terminal-styled, subtle */}
+        {system.id === 'portfolio' && (
+          <div className="mt-4 rounded-md border border-border/70 bg-card/40 backdrop-blur-sm px-4 py-3 font-mono text-[11px] text-muted-foreground">
+            <div className="flex items-center gap-2 mb-2 text-[10px] uppercase tracking-wider text-muted-foreground/70">
+              <span className="text-terminal-green">$</span>
+              <span>status --last-deployment</span>
+            </div>
+            <div className="flex flex-wrap gap-x-5 gap-y-1">
+              <span><span className="text-muted-foreground/70">CI:</span> <span className="text-terminal-green">Passing</span></span>
+              <span><span className="text-muted-foreground/70">Hosting:</span> <span className="text-foreground/90">Cloudflare Pages</span></span>
+              <span><span className="text-muted-foreground/70">Domain:</span> <span className="text-primary">equaan.dev</span></span>
+              <span><span className="text-muted-foreground/70">HTTPS:</span> <span className="text-terminal-green">Enabled</span></span>
+              <span><span className="text-muted-foreground/70">CDN:</span> <span className="text-terminal-green">Active</span></span>
+            </div>
+          </div>
+        )}
+
         {/* SR-only architecture list */}
         <ul className="sr-only">
           {system.nodes.map((n) => (
