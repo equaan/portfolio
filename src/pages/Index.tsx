@@ -15,12 +15,12 @@ const Index = () => {
   return (
     <div className="min-h-screen bg-background">
       <Helmet>
-        <title>equaan | DevOps & Cloud Engineer Portfolio</title>
-        <meta name="description" content="Portfolio of equaan — Aspiring DevOps & Cloud Engineer. AWS, Kubernetes, Docker, Terraform, CI/CD & GitOps. View projects and download resume." />
-        <link rel="canonical" href="https://equaan.github.io/portfolio/" />
-        <meta property="og:title" content="equaan | DevOps & Cloud Engineer Portfolio" />
-        <meta property="og:description" content="Aspiring DevOps & Cloud Engineer — AWS, Kubernetes, Terraform, CI/CD, GitOps. Open to roles." />
-        <meta property="og:url" content="https://equaan.github.io/portfolio/" />
+        <title>equaan | Computer Engineering Student · DevOps & Cloud</title>
+        <meta name="description" content="Final-year Computer Engineering student seeking DevOps, Cloud & Platform Engineering internships. Projects with AWS, Docker, Kubernetes, Terraform and CI/CD." />
+        <link rel="canonical" href="https://equaan.dev/" />
+        <meta property="og:title" content="equaan | CE Student · Aspiring DevOps & Cloud Engineer" />
+        <meta property="og:description" content="Final-year CE student building production-grade cloud infrastructure projects. Seeking DevOps, Cloud & Platform Engineering internships." />
+        <meta property="og:url" content="https://equaan.dev/" />
       </Helmet>
       <Navigation />
       <main>
