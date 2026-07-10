@@ -294,8 +294,8 @@ export const InfraScanner = () => {
             }}
           >
             {system.log.map((line, i) => (
-              <div key={i} className={line.startsWith('✓') ? 'text-terminal-green/90' : line.startsWith('$') ? 'text-primary' : ''}>
-                {line}
+              <div key={i} className={line.startsWith('✓') ? 'text-terminal-green/90' : line.startsWith('$') ? 'text-primary' : line.startsWith('→') ? 'text-foreground/80' : ''}>
+                {line || '\u00A0'}
               </div>
             ))}
           </div>
