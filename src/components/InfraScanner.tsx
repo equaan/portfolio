@@ -319,7 +319,7 @@ export const InfraScanner = () => {
           })()}
 
           {/* Hint pill */}
-          <div className={`absolute bottom-3 right-3 px-2 py-1 rounded border border-border bg-background/70 backdrop-blur-sm font-mono text-[10px] text-muted-foreground pointer-events-none transition-opacity duration-300 ${open ? 'opacity-0' : 'opacity-100'}`}>
+          <div className={`absolute z-20 bottom-3 right-3 px-2 py-1 rounded border border-border bg-background/70 backdrop-blur-sm font-mono text-[10px] text-muted-foreground pointer-events-none transition-opacity duration-300 ${open ? 'opacity-0' : 'opacity-100'}`}>
             hover to inspect →
           </div>
         </div>
