@@ -1,15 +1,15 @@
 import { motion } from 'framer-motion';
-import { Cloud, Container, GitBranch, Server, Shield, Terminal, Database, Workflow, Boxes, MonitorCheck, Lock, Cpu } from 'lucide-react';
+import { Cloud, Container, GitBranch, Server, Terminal, Workflow, Ship, Github, Code2 } from 'lucide-react';
 
 const skills = [
   { name: 'AWS', icon: Cloud, category: 'Cloud' },
   { name: 'Docker', icon: Container, category: 'Containers' },
+  { name: 'Kubernetes', icon: Ship, category: 'Orchestration' },
   { name: 'Terraform', icon: Server, category: 'IaC' },
-  { name: 'Ansible', icon: Cpu, category: 'Config Mgmt' },
-  { name: 'Backstage.io', icon: Boxes, category: 'IDP' },
-  { name: 'CI/CD', icon: Workflow, category: 'Automation' },
-  { name: 'GitHub Actions', icon: GitBranch, category: 'CI/CD' },
+  { name: 'GitHub Actions', icon: Workflow, category: 'CI/CD' },
+  { name: 'Git', icon: GitBranch, category: 'Version Control' },
   { name: 'Linux', icon: Terminal, category: 'Systems' },
+  { name: 'Python', icon: Code2, category: 'Scripting' },
 ];
 
 const containerVariants = {

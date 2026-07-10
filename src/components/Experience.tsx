@@ -9,11 +9,11 @@ const experiences = [
     startDate: 'Feb 2025',
     endDate: 'Apr 2025',
     description:
-      'Built an Internal Developer Platform on Backstage.io enabling self-service multi-cloud infrastructure provisioning for client onboarding.',
+      'Contributed to an Internal Developer Platform on Backstage.io enabling self-service multi-cloud infrastructure provisioning as part of the client onboarding flow.',
     highlights: [
-      'Developed 7+ Backstage scaffolder templates for AWS, Azure & GCP infra (VPC, S3, RDS, EKS, AKS, GKE) plus CI/CD, Ansible and observability stacks',
-      'Architected a 3-repo system (Backstage app, template catalog, Terraform modules) with git-tag-pinned modules for reproducible infrastructure',
-      'Built a 7-step client onboarding wizard chaining templates to provision a full cloud stack from a single form submission',
+      'Built 7+ Backstage scaffolder templates spanning AWS, Azure and GCP (VPC, S3, RDS, EKS, AKS, GKE) plus CI/CD, Ansible and observability stacks',
+      'Helped structure a 3-repo system (Backstage app, template catalog, Terraform modules) with git-tag-pinned modules for reproducible infrastructure',
+      'Implemented a 7-step client onboarding wizard that chains templates to provision a full cloud stack from a single form submission',
       'Automated a GitOps workflow using Nunjucks templating to render IaC files and open pull requests on client GitHub repos',
     ],
   },

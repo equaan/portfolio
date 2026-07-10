@@ -4,9 +4,9 @@ import { Terminal, ChevronRight, Download, Activity } from 'lucide-react';
 import { HeroStatusBar } from '@/components/HeroStatusBar';
 
 const roles = [
-  'Aspiring DevOps Engineer',
-  'Cloud & Automation Enthusiast',
-  'Open to DevOps Roles',
+  'Computer Engineering Student',
+  'Aspiring DevOps & Cloud Engineer',
+  'Seeking DevOps / Cloud Internships',
 ];
 
 export const TypingAnimation = () => {
@@ -90,7 +90,7 @@ export const Hero = () => {
             <span className="text-foreground">Hi, I'm </span>
             <span className="text-gradient">Equaan</span>
             <span className="block mt-2 text-2xl md:text-3xl lg:text-4xl text-muted-foreground">
-              — DevOps & Cloud Engineer
+              — Computer Engineering Student
             </span>
           </motion.h1>
 
@@ -106,8 +106,9 @@ export const Hero = () => {
           <p 
             className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto mb-12 leading-relaxed"
           >
-            Recently completed a Cloud Services internship at Opt IT Technologies (Feb–Apr 2025), where I built an Internal Developer Platform on Backstage.io.
-            Now actively seeking full-time DevOps & Cloud Engineering roles.
+            Final-year Computer Engineering student building production-grade cloud infrastructure projects
+            with AWS, Docker, Kubernetes and Terraform. Seeking DevOps, Cloud and Platform Engineering internships
+            for 2026.
           </p>
 
           <motion.div

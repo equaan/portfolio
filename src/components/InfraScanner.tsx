@@ -111,11 +111,6 @@ const NodeCard = ({ node, hovered, onHover, onLeave }: {
     }`}>
       {node.label}
     </div>
-    {hovered && (
-      <div className="absolute left-1/2 -translate-x-1/2 top-full mt-1.5 px-2 py-1 rounded border border-primary/40 bg-background/95 backdrop-blur-sm font-mono text-[10px] text-muted-foreground max-w-[220px] w-max text-center leading-snug z-10">
-        {node.tooltip}
-      </div>
-    )}
   </div>
 );
 
@@ -273,16 +268,16 @@ export const InfraScanner = () => {
         >
           {/* Bottom layer: architecture diagram */}
           <div
-            className="absolute inset-0 transition-opacity duration-300"
+            className="absolute inset-0 z-0 transition-opacity duration-300"
             style={{ opacity: open ? 1 : 0.001 }}
             aria-hidden="true"
           >
             <Diagram system={system} hoveredId={hoveredId} setHoveredId={setHoveredId} />
           </div>
 
-          {/* Top layer: terminal log with cursor-tracked radial mask */}
+          {/* Middle layer: terminal log with cursor-tracked radial mask */}
           <div
-            className="absolute inset-0 bg-background/95 p-4 md:p-6 font-mono text-[11px] md:text-xs text-muted-foreground leading-relaxed transition-[mask-size,-webkit-mask-size,opacity] duration-300 pointer-events-none"
+            className="absolute inset-0 z-10 bg-background/95 p-4 md:p-6 font-mono text-[11px] md:text-xs text-muted-foreground leading-relaxed transition-[mask-size,-webkit-mask-size,opacity] duration-300 pointer-events-none"
             aria-hidden="true"
             style={{
               WebkitMaskImage: open
@@ -300,8 +295,31 @@ export const InfraScanner = () => {
             ))}
           </div>
 
+          {/* Top layer: hover tooltip — always above terminal so info is never occluded */}
+          {(() => {
+            const active = system.nodes.find((n) => n.id === hoveredId);
+            if (!active) return null;
+            // Clamp horizontally so tooltip stays inside the panel
+            const left = Math.min(Math.max(active.x, 15), 85);
+            const belowNode = active.y < 82;
+            return (
+              <div
+                className="absolute z-30 pointer-events-none -translate-x-1/2"
+                style={{
+                  left: `${left}%`,
+                  top: belowNode ? `calc(${active.y}% + 22px)` : undefined,
+                  bottom: !belowNode ? `calc(${100 - active.y}% + 22px)` : undefined,
+                }}
+              >
+                <div className="px-2 py-1 rounded border border-primary/50 bg-background/95 backdrop-blur-sm font-mono text-[10px] md:text-[11px] text-muted-foreground max-w-[240px] w-max text-center leading-snug shadow-[0_4px_20px_rgba(0,0,0,0.4)]">
+                  {active.tooltip}
+                </div>
+              </div>
+            );
+          })()}
+
           {/* Hint pill */}
-          <div className={`absolute bottom-3 right-3 px-2 py-1 rounded border border-border bg-background/70 backdrop-blur-sm font-mono text-[10px] text-muted-foreground pointer-events-none transition-opacity duration-300 ${open ? 'opacity-0' : 'opacity-100'}`}>
+          <div className={`absolute z-20 bottom-3 right-3 px-2 py-1 rounded border border-border bg-background/70 backdrop-blur-sm font-mono text-[10px] text-muted-foreground pointer-events-none transition-opacity duration-300 ${open ? 'opacity-0' : 'opacity-100'}`}>
             hover to inspect →
           </div>
         </div>
