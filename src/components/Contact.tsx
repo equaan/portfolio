@@ -58,7 +58,7 @@ export const Contact = () => {
             Get In <span className="text-gradient">Touch</span>
           </h2>
           <p className="text-muted-foreground max-w-2xl mx-auto">
-            Interested in collaborating, hiring, or just chatting tech? I'd love to hear from you!
+            Interested in discussing an internship, a project, or just chatting infra? I'd love to hear from you.
           </p>
         </motion.div>
 
@@ -74,8 +74,8 @@ export const Contact = () => {
               Let's <span className="text-gradient">connect</span>
             </h3>
             <p className="text-muted-foreground leading-relaxed">
-              I'm actively seeking full-time DevOps and Cloud Engineering roles (open to contract & freelance too).
-              Feel free to reach out through any of these channels.
+              Open to DevOps, Cloud and Platform Engineering internship opportunities.
+              Feel free to reach out through any of the channels below.
             </p>
           </div>
 
