@@ -4,9 +4,9 @@ import { Terminal, ChevronRight, Download, Activity } from 'lucide-react';
 import { HeroStatusBar } from '@/components/HeroStatusBar';
 
 const roles = [
-  'Aspiring DevOps Engineer',
-  'Cloud & Automation Enthusiast',
-  'Open to DevOps Roles',
+  'Computer Engineering Student',
+  'Aspiring DevOps & Cloud Engineer',
+  'Seeking DevOps / Cloud Internships',
 ];
 
 export const TypingAnimation = () => {
