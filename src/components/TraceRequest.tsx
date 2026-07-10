@@ -111,7 +111,7 @@ export const TraceRequest = ({ open, onClose }: Props) => {
 
         <div className="flex-1 overflow-y-auto px-5 py-6 font-mono text-sm">
           <p className="text-xs text-muted-foreground mb-4">
-            $ trace https://equaan.github.io/portfolio/
+            $ trace https://equaan.dev/
           </p>
 
           <ol className="relative">
