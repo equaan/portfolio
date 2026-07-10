@@ -111,11 +111,6 @@ const NodeCard = ({ node, hovered, onHover, onLeave }: {
     }`}>
       {node.label}
     </div>
-    {hovered && (
-      <div className="absolute left-1/2 -translate-x-1/2 top-full mt-1.5 px-2 py-1 rounded border border-primary/40 bg-background/95 backdrop-blur-sm font-mono text-[10px] text-muted-foreground max-w-[220px] w-max text-center leading-snug z-10">
-        {node.tooltip}
-      </div>
-    )}
   </div>
 );
 
