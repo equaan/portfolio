@@ -50,7 +50,7 @@ const Links = () => (
         <div className="flex items-center gap-2 font-mono text-primary text-xs mb-1">
           <MessageCircle className="h-4 w-4" aria-hidden /> note
         </div>
-        Don't be shy — text me anytime. I reply faster than you'd think. 👋
+        Don't be shy — text me anytime. I reply faster than you'd think.
       </div>
     </div>
   </main>
