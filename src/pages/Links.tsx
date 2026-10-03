@@ -1,11 +1,10 @@
 import { Helmet } from "react-helmet-async";
 import { Instagram, Send, Ghost, MessageCircle } from "lucide-react";
 
-// Replace these with your real handles
 const SOCIALS = [
-  { name: "Instagram", handle: "@your_instagram", href: "https://instagram.com/your_instagram", Icon: Instagram },
-  { name: "Snapchat", handle: "@your_snapchat", href: "https://snapchat.com/add/your_snapchat", Icon: Ghost },
-  { name: "Telegram", handle: "@your_telegram", href: "https://t.me/your_telegram", Icon: Send },
+  { name: "Instagram", handle: "@_equaan_", href: "https://www.instagram.com/_equaan_/", Icon: Instagram },
+  { name: "Snapchat", handle: "@equaan8011", href: "https://snapchat.com/add/equaan8011", Icon: Ghost },
+  { name: "Telegram", handle: "@shoyohinata8011", href: "https://t.me/shoyohinata8011", Icon: Send },
 ];
 
 const Links = () => (
@@ -51,7 +50,7 @@ const Links = () => (
         <div className="flex items-center gap-2 font-mono text-primary text-xs mb-1">
           <MessageCircle className="h-4 w-4" aria-hidden /> note
         </div>
-        Don't be shy — text me anytime. I reply faster than you'd think. 👋
+        Don't be shy — text me anytime. I reply faster than you'd think.
       </div>
     </div>
   </main>
