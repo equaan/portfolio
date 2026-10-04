@@ -110,7 +110,10 @@ const Links = () => {
     const timer = setTimeout(() => ctrl.abort(), TIMEOUT_MS);
     fetch(FACT_ENDPOINT, { signal: ctrl.signal })
       .then((res) => (res.ok ? res.json() : Promise.reject(new Error(`fact request failed: ${res.status}`))))
-      .then((data) => setFact(typeof data?.fact === "string" ? data.fact : null))
+      .then((data) => {
+        const text = typeof data?.fact === "string" ? data.fact.replace(/\\/g, "").trim() : null;
+        setFact(text || "the fact cat is asleep — tap again in a second");
+      })
       .catch(() => setFact("the fact cat is asleep — tap again in a second"))
       .finally(() => clearTimeout(timer));
   }, [fact]);
