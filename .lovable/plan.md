@@ -27,17 +27,13 @@ New card, placed right after the Backstage card (newest work first):
 - `src/components/Projects.tsx` — Backstage card GitHub link → `https://github.com/equaan/backstage`
 - `src/pages/CaseStudyBackstageIDP.tsx` — the two "opt-it-catalog" buttons (header and footer) → same new link. The three-repo architecture narrative in the case study stays as-is; only the button target changes.
 
-## 4. Rebuild the skills section (`src/components/Skills.tsx`)
+## 4. Add the new project's tools to the skills section (`src/components/Skills.tsx`)
 
-Restructure to match the resume's grouped categories, keeping the terminal aesthetic (monospace, cyan accents, card grid — no redesign):
+Keep the existing skills grid exactly as it is and only **add the tools used in the new project** (per the resume/guide) alongside the previous ones, same card style and animations:
 
-- **Programming & Scripting**: Python, Shell Scripting, SQL, YAML
-- **Cloud & IaC**: AWS, Azure, GCP, Terraform
-- **DevOps & Platform**: Docker, Kubernetes, K3s, Jenkins, GitHub Actions, Ansible, Helm, Argo CD, Backstage.io
-- **Monitoring & Security**: Prometheus, Grafana, SonarQube, Trivy
-- **Systems & Tools**: Linux, Git, GitHub, AWS CLI
+- **New cards**: Jenkins, K3s, Ansible, Helm, Argo CD, Prometheus, Grafana, SonarQube, Trivy
 
-Layout: one group per row with a small category header (styled like a shell comment, e.g. `# devops-platform`) and tool chips/cards inside. Same hover behavior and stagger animation as today, CSS-only.
+That takes the grid from 8 to 17 cards (2/3/4-column responsive grid already handles it). Categories on the new cards: Jenkins (CI/CD), K3s (Orchestration), Ansible (Automation), Helm (Packaging), Argo CD (GitOps), Prometheus & Grafana (Monitoring), SonarQube (Code Quality), Trivy (Security).
 
 ## 5. Sync the Experience section (`src/components/Experience.tsx`)
 
