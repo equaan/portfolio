@@ -1,12 +1,21 @@
 import { motion } from 'framer-motion';
-import { Cloud, Container, GitBranch, Server, Terminal, Workflow, Ship, Github, Code2 } from 'lucide-react';
+import { Cloud, Container, GitBranch, Server, Terminal, Workflow, Ship, Code2, Hammer, Boxes, Play, Anchor, RefreshCw, Activity, BarChart3, SearchCheck, ShieldCheck } from 'lucide-react';
 
 const skills = [
   { name: 'AWS', icon: Cloud, category: 'Cloud' },
   { name: 'Docker', icon: Container, category: 'Containers' },
   { name: 'Kubernetes', icon: Ship, category: 'Orchestration' },
+  { name: 'K3s', icon: Boxes, category: 'Orchestration' },
   { name: 'Terraform', icon: Server, category: 'IaC' },
+  { name: 'Jenkins', icon: Hammer, category: 'CI/CD' },
   { name: 'GitHub Actions', icon: Workflow, category: 'CI/CD' },
+  { name: 'Argo CD', icon: RefreshCw, category: 'GitOps' },
+  { name: 'Ansible', icon: Play, category: 'Automation' },
+  { name: 'Helm', icon: Anchor, category: 'Packaging' },
+  { name: 'Prometheus', icon: Activity, category: 'Monitoring' },
+  { name: 'Grafana', icon: BarChart3, category: 'Monitoring' },
+  { name: 'SonarQube', icon: SearchCheck, category: 'Code Quality' },
+  { name: 'Trivy', icon: ShieldCheck, category: 'Security' },
   { name: 'Git', icon: GitBranch, category: 'Version Control' },
   { name: 'Linux', icon: Terminal, category: 'Systems' },
   { name: 'Python', icon: Code2, category: 'Scripting' },
