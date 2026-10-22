@@ -27,7 +27,7 @@ New card, placed right after the Backstage card (newest work first):
 - `src/components/Projects.tsx` — Backstage card GitHub link → `https://github.com/equaan/backstage`
 - `src/pages/CaseStudyBackstageIDP.tsx` — the two "opt-it-catalog" buttons (header and footer) → same new link. The three-repo architecture narrative in the case study stays as-is; only the button target changes.
 
-## 4. Rebuild the skills section (`src/components/Skills.tsx`)
+## 4. Add the new project's tools to the skills section (`src/components/Skills.tsx`)
 
 Keep the existing skills grid exactly as it is and only **add the tools used in the new project** (per the resume/guide) alongside the previous ones, same card style and animations:
 
