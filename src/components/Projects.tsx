@@ -1,6 +1,6 @@
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
-import { Github, Cloud, Container, Layers, FileText } from 'lucide-react';
+import { Github, Cloud, Container, Layers, FileText, Gauge } from 'lucide-react';
 
 type Project = {
   title: string;
