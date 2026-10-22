@@ -12,7 +12,7 @@ Source of truth: the uploaded `Resume.pdf` (Oct 2026) and `Local-Guide-Booking-V
 New card, placed right after the Backstage card (newest work first):
 
 - **Title**: Local Guide Booking System
-- **GitHub**: https://github.com/equaan/local-guide-booking
+- **GitHub**: [https://github.com/equaan/local-guide-booking](https://github.com/equaan/local-guide-booking)
 - **Description** (problem → what was built → engineering decisions, figures straight from the resume/guide):
   - Flask app where local guides publish availability slots and travelers request bookings; guides confirm or cancel.
   - The real outcome is the DevSecOps delivery chain around it: an 11-stage Jenkins pipeline running 51 pytest tests (94% branch-aware coverage), 5 Selenium E2E journeys, and a SonarQube quality gate that can abort the build.
@@ -50,3 +50,11 @@ Match the new resume exactly:
 
 - Check the build log after edits.
 - Playwright: load the homepage, confirm the new project card and grouped skills render on desktop + mobile, no console errors; confirm `/resume.pdf` now serves the new file (byte size / first page differs from the old one).
+
+&nbsp;
+
+if possible add a case study on this new project too ( not giving orders, just asking your opinion, if adding would be good decision, add it, otherwise let it be)
+
+also see that we can add this project into already existing animations or things which are there or we can create a new animation or transition thing, or an animaiton button which opens a transition animation which starts wiht dev pushing code and jenkins triggers, argo cd triggers and all (what you think?)
+
+&nbsp;
