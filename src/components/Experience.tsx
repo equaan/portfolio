@@ -5,16 +5,16 @@ const experiences = [
   {
     role: 'Cloud Services Intern',
     company: 'Opt IT Technologies',
-    location: 'India',
-    startDate: 'Feb 2025',
-    endDate: 'Apr 2025',
+    location: 'Remote',
+    startDate: 'Feb 2026',
+    endDate: 'Apr 2026',
     description:
-      'Contributed to an Internal Developer Platform on Backstage.io enabling self-service multi-cloud infrastructure provisioning as part of the client onboarding flow.',
+      'Designed and implemented an Internal Developer Platform (IDP) using Backstage.io to standardize client cloud onboarding through self-service infrastructure provisioning workflows.',
     highlights: [
-      'Built 7+ Backstage scaffolder templates spanning AWS, Azure and GCP (VPC, S3, RDS, EKS, AKS, GKE) plus CI/CD, Ansible and observability stacks',
-      'Helped structure a 3-repo system (Backstage app, template catalog, Terraform modules) with git-tag-pinned modules for reproducible infrastructure',
-      'Implemented a 7-step client onboarding wizard that chains templates to provision a full cloud stack from a single form submission',
-      'Automated a GitOps workflow using Nunjucks templating to render IaC files and open pull requests on client GitHub repos',
+      'Developed 7+ Backstage Scaffolder templates and a centralized library of reusable, version-controlled Terraform modules, enabling standardized infrastructure provisioning across AWS, Azure and GCP',
+      'Built an automated GitOps-based onboarding workflow that fetches Terraform modules, renders IaC with Nunjucks templating, and creates pull requests on client GitHub repositories for review-driven deployments',
+      'Integrated Backstage provisioning workflows with GitHub Actions and multi-cloud infrastructure tooling, supporting automated infrastructure delivery across AWS, Azure and GCP',
+      'Deployed and validated the platform on multiple AWS EC2 environments using Docker, and investigated deployment challenges during an on-premise rollout involving Node.js dependency management and Backstage runtime configuration',
     ],
   },
 ];

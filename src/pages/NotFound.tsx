@@ -15,10 +15,10 @@ const NotFound = () => {
         <title>Page Not Found (404) | equaan</title>
         <meta name="description" content="The page you're looking for doesn't exist. Head back to equaan's DevOps & Cloud Engineer portfolio home." />
         <meta name="robots" content="noindex, follow" />
-        <link rel="canonical" href={`https://equaan.github.io/portfolio${location.pathname}`} />
+        <link rel="canonical" href={`https://equaan.dev${location.pathname}`} />
         <meta property="og:title" content="Page Not Found (404) | equaan" />
         <meta property="og:description" content="The page you're looking for doesn't exist." />
-        <meta property="og:url" content={`https://equaan.github.io/portfolio${location.pathname}`} />
+        <meta property="og:url" content={`https://equaan.dev${location.pathname}`} />
       </Helmet>
       <div className="flex min-h-screen items-center justify-center bg-muted">
         <div className="text-center">

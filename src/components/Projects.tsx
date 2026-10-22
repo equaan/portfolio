@@ -1,6 +1,6 @@
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
-import { Github, Cloud, Container, Layers, FileText } from 'lucide-react';
+import { Github, Cloud, Container, Layers, FileText, Gauge } from 'lucide-react';
 
 type Project = {
   title: string;
@@ -17,8 +17,16 @@ const projects: Project[] = [
     description: 'Internal Developer Platform built on Backstage.io with 7+ scaffolder templates for AWS, Azure & GCP infrastructure. A 3-repo system (portal, template catalog, git-tag-pinned Terraform modules) renders IaC via Nunjucks and opens PRs on client GitHub repos for a fully GitOps onboarding flow.',
     tech: ['Backstage.io', 'Terraform', 'Nunjucks', 'GitHub Actions', 'AWS', 'Azure', 'GCP'],
     icon: Layers,
-    github: 'https://github.com/equaan/opt-it-catalog',
+    github: 'https://github.com/equaan/backstage',
     caseStudy: '/projects/backstage-idp',
+  },
+  {
+    title: 'Local Guide Booking System',
+    description: 'Flask app where local guides publish availability slots and travelers book them. Built the full DevSecOps delivery chain around it: an 11-stage Jenkins pipeline running 51 pytest tests (94% branch-aware coverage), 5 Selenium E2E journeys and a SonarQube quality gate; hardened releases with a two-stage non-root Docker build and Trivy gates; GitOps deployment to a K3s cluster via Ansible, Helm and Argo CD. Instrumented with 6 custom Prometheus metrics and a Grafana dashboard.',
+    tech: ['Flask', 'Jenkins', 'Docker', 'K3s', 'Argo CD', 'Helm', 'Ansible', 'Prometheus', 'Grafana', 'SonarQube', 'Trivy'],
+    icon: Gauge,
+    github: 'https://github.com/equaan/local-guide-booking',
+    caseStudy: '/projects/local-guide-booking',
   },
   {
     title: 'Cloud Cost Optimization Engine',

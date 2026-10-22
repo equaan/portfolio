@@ -141,7 +141,7 @@ export const About = () => {
               curtain — how apps are built, shipped and kept running — pulled me toward infrastructure and automation.
             </p>
             <p className="text-lg text-muted-foreground leading-relaxed">
-              During a Cloud Services internship at Opt IT Technologies (Feb–Apr 2025), I contributed to an
+              During a Cloud Services internship at Opt IT Technologies (Feb–Apr 2026), I contributed to an
               Internal Developer Platform on Backstage.io with multi-cloud Terraform templates for AWS, Azure and GCP.
               Alongside coursework, I keep building production-style projects with Docker, Kubernetes, CI/CD and Linux
               to make the theory stick.

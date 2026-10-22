@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import { ArrowLeft, Github, ExternalLink, Layers, GitBranch, Workflow, Package, CheckCircle2 } from 'lucide-react';
 
 const CaseStudyBackstageIDP = () => {
-  const url = 'https://equaan.github.io/portfolio/projects/backstage-idp';
+  const url = 'https://equaan.dev/projects/backstage-idp';
 
   return (
     <>
@@ -64,12 +64,12 @@ const CaseStudyBackstageIDP = () => {
               </p>
               <div className="flex flex-wrap gap-3 mt-6">
                 <a
-                  href="https://github.com/equaan/opt-it-catalog"
+                  href="https://github.com/equaan/backstage"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="inline-flex items-center gap-2 px-4 py-2 min-h-[48px] rounded-md font-mono text-sm border border-primary/50 text-primary hover:bg-primary/10 transition-colors"
                 >
-                  <Github className="w-4 h-4" aria-hidden="true" /> opt-it-catalog
+                  <Github className="w-4 h-4" aria-hidden="true" /> backstage
                 </a>
                 <a
                   href="https://backstage.io/"
@@ -264,7 +264,7 @@ Client runs \`terraform init && terraform apply\``}</pre>
                   <ArrowLeft className="w-4 h-4" aria-hidden="true" /> back to portfolio
                 </Link>
                 <a
-                  href="https://github.com/equaan/opt-it-catalog"
+                  href="https://github.com/equaan/backstage"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="inline-flex items-center gap-2 px-4 py-2 min-h-[48px] rounded-md font-mono text-sm border border-primary/50 text-primary hover:bg-primary/10 transition-colors"

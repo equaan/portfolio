@@ -6,6 +6,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Index from "./pages/Index";
 import NotFound from "./pages/NotFound";
 import CaseStudyBackstageIDP from "./pages/CaseStudyBackstageIDP";
+import CaseStudyLocalGuideBooking from "./pages/CaseStudyLocalGuideBooking";
 import Links from "./pages/Links";
 
 const queryClient = new QueryClient();
