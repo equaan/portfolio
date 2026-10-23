@@ -85,6 +85,44 @@ const SYSTEMS: SystemDef[] = [
       ['gha', 'aws'],
     ],
   },
+  {
+    id: 'lgb',
+    label: 'Local Guide Booking',
+    log: [
+      '$ git push origin main',
+      '',
+      '→ Jenkins: local-guide-booking pipeline',
+      '✓ pytest: 51 passed (94% branch-aware coverage)',
+      '✓ Selenium E2E: 5 journeys passed',
+      '✓ SonarQube quality gate: PASS',
+      '✓ Docker build: two-stage, non-root',
+      '✓ Trivy: no fixable HIGH/CRITICAL',
+      '✓ Image pushed: equaan/local-guide-booking:v0.1.0-…',
+      '',
+      '→ GitOps tag commit → Argo CD sync',
+      '✓ Helm reconciles K3s (lgb-dev)',
+      '✓ Migration init container: OK',
+      '✓ up{job="local-guide-booking"} = 1',
+    ],
+    nodes: [
+      { id: 'dev',       label: 'Developer',     x: 50, y: 8,  tooltip: 'Pushes app code, tests, Jenkinsfile and Helm/Argo configuration to GitHub.' },
+      { id: 'repo',      label: 'GitHub',        x: 50, y: 26, tooltip: 'Two repos: the application, and a GitOps repo holding the Helm release values Argo CD watches.' },
+      { id: 'jenkins',   label: 'Jenkins CI',    x: 22, y: 46, tooltip: 'Runs the 11-stage pipeline: pytest, Selenium E2E, SonarQube quality gate, Docker build.' },
+      { id: 'trivy',     label: 'Trivy Gate',    x: 78, y: 46, tooltip: 'Scans the image; fixable HIGH/CRITICAL vulnerabilities abort the release.' },
+      { id: 'hub',       label: 'Docker Hub',    x: 78, y: 64, tooltip: 'Publishes immutable images tagged v0.1.0-<build>-<sha>.' },
+      { id: 'argocd',    label: 'Argo CD',       x: 22, y: 64, tooltip: 'Jenkins commits the new image tag to the GitOps repo; Argo CD detects and syncs it.' },
+      { id: 'k3s',       label: 'K3s Cluster',   x: 50, y: 84, tooltip: 'Single-node cluster: Helm reconciles the release; a migration init container runs before Gunicorn starts.' },
+    ],
+    edges: [
+      ['dev', 'repo'],
+      ['repo', 'jenkins'],
+      ['repo', 'trivy'],
+      ['jenkins', 'hub'],
+      ['trivy', 'hub'],
+      ['hub', 'argocd'],
+      ['argocd', 'k3s'],
+    ],
+  },
 ];
 
 const NodeCard = ({ node, hovered, onHover, onLeave }: {
@@ -299,8 +337,11 @@ export const InfraScanner = () => {
           {(() => {
             const active = system.nodes.find((n) => n.id === hoveredId);
             if (!active) return null;
-            // Clamp horizontally so tooltip stays inside the panel
-            const left = Math.min(Math.max(active.x, 15), 85);
+            // Clamp in pixels so the tooltip never leaves the panel, on any screen size
+            const panelWidth = panelRef.current?.clientWidth ?? 600;
+            const halfTooltip = 120 + 8; // max-w-[240px] tooltip, 8px breathing room
+            const minPct = (halfTooltip / panelWidth) * 100;
+            const left = Math.min(Math.max(active.x, minPct), 100 - minPct);
             const belowNode = active.y < 82;
             return (
               <div
