@@ -6,7 +6,7 @@
 
 - [Home](/): Hero introduction, current status, and CV download.
 - [About](/#about): Background, terminal-style profile card, and stats.
-- [Experience](/#experience): Cloud Services internship at Opt IT Technologies (Feb–Apr 2025) building an Internal Developer Platform on Backstage.io.
+- [Experience](/#experience): Cloud Services internship at Opt IT Technologies (Feb–Apr 2026) building an Internal Developer Platform on Backstage.io.
 - [Skills](/#skills): Technical stack — AWS, Kubernetes, Docker, Terraform, Linux, Python, CI/CD, GitOps.
 - [Projects](/#projects): Selected DevOps and Cloud projects with GitHub links.
 - [Certifications](/#certifications): Cloud and DevOps certifications.
@@ -15,3 +15,4 @@
 ## Case Studies
 
 - [Backstage IDP for Multi-Cloud Provisioning](/projects/backstage-idp): Technical deep-dive on building an Internal Developer Platform with Backstage.io, Terraform, and a GitOps PR workflow across AWS, Azure, and GCP.
+- [Local Guide Booking: A DevSecOps Delivery Chain](/projects/local-guide-booking): Technical deep-dive on an 11-stage Jenkins pipeline with quality and vulnerability gates, immutable Docker releases, and GitOps deployment to K3s via Ansible, Helm, and Argo CD.
