@@ -337,8 +337,8 @@ export const InfraScanner = () => {
           {(() => {
             const active = system.nodes.find((n) => n.id === hoveredId);
             if (!active) return null;
-            // Clamp horizontally so tooltip stays inside the panel
-            const left = Math.min(Math.max(active.x, 15), 85);
+            // Clamp horizontally so the tooltip stays inside the panel (25% padding keeps a 240px tooltip inside narrow mobile panels)
+            const left = Math.min(Math.max(active.x, 25), 75);
             const belowNode = active.y < 82;
             return (
               <div
