@@ -18,6 +18,7 @@ const App = () => (
       <Sonner />
       {/* CHANGE HERE: We added the basename prop */}
       <BrowserRouter basename={import.meta.env.BASE_URL}>
+        <ScrollToTop />
         <Routes>
           <Route path="/" element={<Index />} />
           <Route path="/projects/backstage-idp" element={<CaseStudyBackstageIDP />} />
