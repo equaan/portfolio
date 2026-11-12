@@ -1,0 +1,18 @@
+# EQUAAN — SYSTEMS ATLAS redesign
+
+## Safety gate
+The current workspace is on a managed `edit/...` branch, not `main` or `portfolio-redesign`. No application files have been changed. Before implementation, create `portfolio-redesign` from the latest `main` and switch the Lovable preview to it using the branch controls. The redesign stays on that branch: no production configuration, domain, or deployment changes; no merge or publish without your explicit approval.
+
+## Stages
+1. **Audit and preserve** — Map existing pages, navigation, project details, external links, resume download, metadata, sitemap, robots rules, and CI. Keep the existing `/links` social page independent and unlinked from the professional portfolio. Preserve the certification and all verified content. Correct or omit claims that cannot be supported by the resume, project guides, or repositories.
+2. **New visual system and homepage** — Establish the paper, ink, green, and orange palette with Space Grotesk, Inter, and JetBrains Mono; redesign the navigation and editorial homepage around the nameplate (no portrait asset is present), the requested student introduction, internship availability, Atlas CTA, GitHub, and LinkedIn. Recompose—not merely recolor—the page into distinct Atlas, selected work, experience, toolkit, field notes, certification, and contact sections.
+3. **Systems Atlas** — Build the four-route topology as a responsive, keyboard-operable systems map. Hover/focus highlights connected paths; selecting a node reveals contextual details; project nodes link to their case studies. Add route reset, restrained route drawing, visible focus, reduced-motion behavior, and a vertically navigable mobile explorer that does not shrink the desktop diagram.
+4. **Selected work and case studies** — Reframe the three named projects around problem, architecture, decisions, contribution, implementation, trade-offs, and lessons. Preserve existing Backstage and Local Guide Booking routes and add a Cloud Cost Optimization case-study route. Verify details against the actual repositories and existing guides before writing. Use genuine screenshots only if they exist in those sources; do not fabricate screenshots, metrics, production claims, or features.
+5. **Positioning, navigation, and metadata** — Audit every professional page, footer, resume link, and public-facing metadata for accurate final-year Computer Science student and internship positioning. Keep Cloudflare Pages/CDN, `equaan.dev`, and GitHub Actions CI accurate; retain the resume, canonical URLs, social metadata, structured data, sitemap, robots, and working nested-page refresh behavior. Do not expose `/links` in navigation or indexing.
+6. **Responsive and quality verification** — Check desktop, tablet, and mobile layouts; keyboard and reduced-motion behavior; every route, anchor, project/repository link, and resume download. Run the existing lint, TypeScript, and production-build checks; fix issues found. Do not promote or deploy the redesign.
+
+## Technical approach
+- Keep React/Vite and the current dependency set; prefer existing semantic design tokens and CSS/SVG for the map and route motion over heavy new libraries.
+- Keep the existing case-study URLs, adding `/projects/cloud-cost-optimization`; update routing, scroll-to-top behavior, and sitemap for the new page.
+- Use real project evidence where available. Existing project files contain claims that require validation; unavailable or unverified evidence will not be presented as fact.
+- Record the new Atlas and case-study structure in the project’s `AGENTS.md` before implementation is complete.
