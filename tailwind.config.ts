@@ -57,6 +57,12 @@ export default {
           cyan: "hsl(var(--terminal-cyan))",
           yellow: "hsl(var(--terminal-yellow))",
         },
+        route: {
+          green: "hsl(var(--route-green))",
+          orange: "hsl(var(--route-orange))",
+          cloud: "hsl(var(--route-cloud))",
+          ochre: "hsl(var(--route-ochre))",
+        },
         sidebar: {
           DEFAULT: "hsl(var(--sidebar-background))",
           foreground: "hsl(var(--sidebar-foreground))",

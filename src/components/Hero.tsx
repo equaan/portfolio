@@ -1,180 +1,101 @@
-import { useState, useEffect } from 'react';
-import { motion } from 'framer-motion';
-import { Terminal, ChevronRight, Download, Activity } from 'lucide-react';
-import { HeroStatusBar } from '@/components/HeroStatusBar';
+import { ArrowDown, ArrowUpRight, Download, Github, Linkedin } from 'lucide-react';
+import { Button } from '@/components/ui/button';
 
-const roles = [
-  'Computer Engineering Student',
-  'Aspiring DevOps & Cloud Engineer',
-  'Seeking DevOps / Cloud Internships',
-];
+export const Hero = () => (
+  <section id="home" className="editorial-hero" aria-labelledby="hero-heading">
+    <div className="editorial-hero-inner">
+      <div className="editorial-hero-copy">
+        <div className="editorial-status">
+          <span className="editorial-status-dot" aria-hidden="true" />
+          <span>Open to DevOps · Cloud · Platform internships</span>
+        </div>
 
-export const TypingAnimation = () => {
-  const [currentRole, setCurrentRole] = useState(0);
-  const [displayedText, setDisplayedText] = useState('');
-  const [isDeleting, setIsDeleting] = useState(false);
+        <p className="editorial-eyebrow">Engineer in progress <span>·</span> Mumbai, India</p>
+        <p className="editorial-nameplate">Mohammad Equaan Kacchi</p>
 
-  useEffect(() => {
-    const role = roles[currentRole];
-    const timeout = setTimeout(
-      () => {
-        if (!isDeleting) {
-          if (displayedText.length < role.length) {
-            setDisplayedText(role.slice(0, displayedText.length + 1));
-          } else {
-            setTimeout(() => setIsDeleting(true), 2000);
-          }
-        } else {
-          if (displayedText.length > 0) {
-            setDisplayedText(displayedText.slice(0, -1));
-          } else {
-            setIsDeleting(false);
-            setCurrentRole((prev) => (prev + 1) % roles.length);
-          }
-        }
-      },
-      isDeleting ? 40 : 80
-    );
+        <h1 id="hero-heading" className="editorial-title">
+          I build, connect and understand the <em>systems behind software.</em>
+        </h1>
 
-    return () => clearTimeout(timeout);
-  }, [displayedText, isDeleting, currentRole]);
+        <p className="editorial-intro">
+          Final-year Computer Engineering student exploring DevOps, Cloud and Platform
+          Engineering through practical engineering projects.
+        </p>
 
-  return (
-    <span className="inline-flex items-center min-h-[2rem]">
-      <span className="text-gradient">
-        {displayedText}
-      </span>
-      <span 
-        className="w-0.5 h-8 bg-primary ml-1 animate-blink"
-      />
-    </span>
-  );
-};
-
-export const Hero = () => {
-  return (
-    <section className="min-h-screen flex items-center justify-center relative overflow-hidden">
-      {/* Background effects - static, no JS animations */}
-      <div className="absolute inset-0 hero-gradient opacity-50" />
-      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_hsl(175_80%_50%_/_0.05)_0%,_transparent_70%)]" />
-      
-      {/* Grid pattern - static */}
-      <div className="absolute inset-0 bg-[linear-gradient(hsl(220_15%_20%_/_0.3)_1px,transparent_1px),linear-gradient(90deg,hsl(220_15%_20%_/_0.3)_1px,transparent_1px)] bg-[size:50px_50px]" />
-
-      <div className="container relative z-10 px-4">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.4, ease: "easeOut" }}
-          className="text-center max-w-4xl mx-auto"
-        >
-          {/* Terminal prompt */}
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ duration: 0.3, ease: "easeOut", delay: 0.05 }}
-            className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-primary/30 bg-card/50 backdrop-blur-sm mb-8"
-          >
-            <Terminal className="w-4 h-4 text-primary" aria-hidden="true" />
-            <code className="text-sm text-muted-foreground">~/portfolio</code>
-            <ChevronRight className="w-4 h-4 text-primary" aria-hidden="true" />
-            <span className="text-terminal-green text-sm">ready</span>
-          </motion.div>
-
-          <motion.h1
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, ease: "easeOut", delay: 0.15 }}
-            className="text-4xl md:text-6xl lg:text-7xl font-bold mb-6 font-mono"
-          >
-            <span className="text-foreground">Hi, I'm </span>
-            <span className="text-gradient">Equaan</span>
-            <span className="block mt-2 text-2xl md:text-3xl lg:text-4xl text-muted-foreground">
-              — Computer Engineering Student
-            </span>
-          </motion.h1>
-
-          <motion.div 
-            initial={{ opacity: 0, y: 15 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, ease: "easeOut", delay: 0.25 }}
-            className="text-2xl md:text-3xl lg:text-4xl font-mono mb-8 min-h-[3rem] flex items-center justify-center"
-          >
-            <TypingAnimation />
-          </motion.div>
-
-          <p 
-            className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto mb-12 leading-relaxed"
-          >
-            Final-year Computer Engineering student building production-grade cloud infrastructure projects
-            with AWS, Docker, Kubernetes and Terraform. Seeking DevOps, Cloud and Platform Engineering internships
-            for 2026.
-          </p>
-
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, ease: "easeOut", delay: 0.4 }}
-            className="flex flex-col sm:flex-row gap-4 justify-center"
-          >
-            <motion.a 
-              href="#projects"
-              whileHover={{ scale: 1.02 }}
-              whileTap={{ scale: 0.98 }}
-              transition={{ duration: 0.2 }}
-            >
-              <button className="inline-flex items-center justify-center gap-2 h-12 px-8 rounded-md font-mono text-sm bg-gradient-to-r from-primary to-accent text-primary-foreground hover:opacity-90 hover:shadow-[0_0_30px_hsl(175_80%_50%_/_0.5)] transition-all duration-500">
-                View My Work
-                <ChevronRight className="w-4 h-4" aria-hidden="true" />
-              </button>
-            </motion.a>
-            <motion.a 
-              href="#contact"
-              whileHover={{ scale: 1.02 }}
-              whileTap={{ scale: 0.98 }}
-              transition={{ duration: 0.2 }}
-            >
-              <button className="inline-flex items-center justify-center gap-2 h-12 px-8 rounded-md font-mono text-sm border border-primary/50 bg-transparent text-primary hover:bg-primary/10 hover:border-primary hover:shadow-[0_0_15px_hsl(175_80%_50%_/_0.3)] transition-all duration-500">
-                Get In Touch
-              </button>
-            </motion.a>
-            
-            {/* --- FIXED SECTION BELOW --- */}
-            <motion.a 
+        <div className="editorial-actions">
+          <Button asChild className="atlas-primary-action">
+            <a href="#atlas">
+              Explore the Atlas <ArrowDown aria-hidden="true" />
+            </a>
+          </Button>
+          <Button asChild variant="outline" className="atlas-secondary-action">
+            <a
               href={`${import.meta.env.BASE_URL}resume.pdf`}
               download="Mohammad_Equaan_Kacchi_Resume.pdf"
-              whileHover={{ scale: 1.02 }}
-              whileTap={{ scale: 0.98 }}
-              transition={{ duration: 0.2 }}
             >
-              <button className="inline-flex items-center justify-center gap-2 h-12 px-8 rounded-md font-mono text-sm border border-accent/50 bg-transparent text-accent hover:bg-accent/10 hover:border-accent hover:shadow-[0_0_15px_hsl(185_70%_45%_/_0.3)] transition-all duration-500">
-                <Download className="w-4 h-4" aria-hidden="true" />
-                Download CV
-              </button>
-            </motion.a>
-            {/* --------------------------- */}
-            
-          </motion.div>
-
-          <HeroStatusBar />
-        </motion.div>
-
-        {/* Trace Portfolio floating action — signature interaction */}
-        <button
-          onClick={() => window.dispatchEvent(new CustomEvent('cmdk:trace'))}
-          className="absolute top-24 right-4 md:right-8 z-20 inline-flex items-center gap-2 px-3 py-2 rounded-md border border-primary/40 bg-card/70 backdrop-blur-sm font-mono text-xs text-primary hover:bg-primary/10 hover:border-primary hover:shadow-[0_0_20px_hsl(175_80%_50%_/_0.35)] transition-all"
-          aria-label="Trace a request through the portfolio infrastructure"
-        >
-          <Activity className="w-3.5 h-3.5" aria-hidden="true" />
-          <span className="hidden sm:inline">Trace Portfolio</span>
-          <span className="sm:hidden">Trace</span>
-        </button>
-
-
-        {/* Floating elements - using CSS animations for performance */}
-        <div className="absolute top-1/4 left-10 w-20 h-20 border border-primary/20 rounded-lg rotate-12 hidden lg:block animate-float" />
-        <div className="absolute bottom-1/4 right-10 w-16 h-16 border border-accent/20 rounded-full hidden lg:block animate-float" style={{ animationDelay: '1s' }} />
+              Resume <Download aria-hidden="true" />
+            </a>
+          </Button>
+          <a
+            className="editorial-social-link"
+            href="https://github.com/equaan"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Mohammad Equaan Kacchi on GitHub"
+          >
+            <Github aria-hidden="true" />
+            <span>GitHub</span>
+            <ArrowUpRight aria-hidden="true" />
+          </a>
+          <a
+            className="editorial-social-link"
+            href="https://www.linkedin.com/in/equaan-devops"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Mohammad Equaan Kacchi on LinkedIn"
+          >
+            <Linkedin aria-hidden="true" />
+            <span>LinkedIn</span>
+            <ArrowUpRight aria-hidden="true" />
+          </a>
+        </div>
       </div>
-    </section>
-  );
-};
+
+      <aside className="hero-field-note" aria-label="Atlas index: four engineering routes">
+        <div className="hero-field-note-heading">
+          <span>ATLAS INDEX</span>
+          <span>FIELD 01—04</span>
+        </div>
+        <div className="hero-field-map" aria-hidden="true">
+          <svg viewBox="0 0 360 255" preserveAspectRatio="xMidYMid meet">
+            <path className="hero-map-line hero-map-line--platform" d="M24 42 H106 L158 82 H330" />
+            <path className="hero-map-line hero-map-line--delivery" d="M24 99 H116 L166 126 H330" />
+            <path className="hero-map-line hero-map-line--cloud" d="M24 158 H110 L162 168 H330" />
+            <path className="hero-map-line hero-map-line--observability" d="M24 218 H108 L160 204 H330" />
+            <path className="hero-map-crossing" d="M158 82 V204" />
+            <circle className="hero-map-junction" cx="158" cy="126" r="6" />
+            {[42, 99, 158, 218].map((y) => (
+              <circle className="hero-map-node" cx="24" cy={y} r="4" key={y} />
+            ))}
+            {[82, 126, 168, 204].map((y) => (
+              <circle className="hero-map-node" cx="330" cy={y} r="4" key={y} />
+            ))}
+          </svg>
+        </div>
+        <ol className="hero-field-list">
+          <li><span>01</span> Platform engineering</li>
+          <li><span>02</span> DevSecOps &amp; delivery</li>
+          <li><span>03</span> Cloud &amp; infrastructure</li>
+          <li><span>04</span> Observability</li>
+        </ol>
+        <a className="hero-field-coordinate" href="#atlas">
+          Follow the routes <ArrowDown aria-hidden="true" />
+        </a>
+      </aside>
+    </div>
+    <div className="editorial-hero-footer" aria-hidden="true">
+      <span>PERSONAL SYSTEMS ATLAS</span>
+      <span>2026 <span className="editorial-footer-mark">/</span> MUMBAI, IN</span>
+    </div>
+  </section>
+);
