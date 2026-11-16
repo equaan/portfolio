@@ -13,7 +13,7 @@ import { SystemsAtlas } from '@/components/SystemsAtlas';
 
 const Index = () => {
   return (
-    <div className="min-h-screen bg-background">
+    <div className="portfolio-site min-h-screen bg-background">
       <Helmet>
         <title>Mohammad Equaan Kacchi — Systems Atlas</title>
         <meta name="description" content="A final-year Computer Engineering student exploring DevOps, Cloud and Platform Engineering through practical projects and a Systems Atlas." />
