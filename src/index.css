@@ -11,50 +11,47 @@
   }
 
   :root {
-    --background: 48 28% 93%;
-    --foreground: 167 23% 12%;
+    --background: 220 20% 6%;
+    --foreground: 180 10% 92%;
+    --card: 220 18% 10%;
+    --card-foreground: 180 10% 92%;
+    --popover: 220 18% 10%;
+    --popover-foreground: 180 10% 92%;
+    --primary: 175 80% 50%;
+    --primary-foreground: 220 20% 6%;
+    --secondary: 220 15% 15%;
+    --secondary-foreground: 180 10% 92%;
+    --muted: 220 15% 18%;
+    --muted-foreground: 220 10% 65%;
+    --accent: 142 70% 50%;
+    --accent-foreground: 220 20% 6%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+    --border: 220 15% 20%;
+    --input: 220 15% 20%;
+    --ring: 175 80% 50%;
+    --radius: 0.5rem;
 
-    --card: 54 17% 88%;
-    --card-foreground: 167 23% 12%;
-    --popover: 48 28% 93%;
-    --popover-foreground: 167 23% 12%;
+    --route-green: 142 70% 50%;
+    --route-orange: 45 90% 60%;
+    --route-cloud: 175 80% 50%;
+    --route-ochre: 45 90% 60%;
+    --glow-primary: 0 0 20px hsl(175 80% 50% / 0.3);
+    --glow-accent: 0 0 20px hsl(142 70% 50% / 0.3);
+    --gradient-hero: linear-gradient(135deg, hsl(175 80% 50% / 0.1) 0%, hsl(142 70% 50% / 0.05) 100%);
+    --gradient-card: linear-gradient(180deg, hsl(220 18% 12%) 0%, hsl(220 18% 8%) 100%);
+    --terminal-green: 142 70% 50%;
+    --terminal-cyan: 175 80% 50%;
+    --terminal-yellow: 45 90% 60%;
 
-    --primary: 163 50% 30%;
-    --primary-foreground: 48 28% 96%;
-    --secondary: 54 17% 88%;
-    --secondary-foreground: 167 23% 12%;
-    --muted: 55 11% 80%;
-    --muted-foreground: 155 6% 37%;
-    --accent: 20 63% 58%;
-    --accent-foreground: 167 23% 12%;
-
-    --destructive: 0 65% 46%;
-    --destructive-foreground: 48 28% 96%;
-    --border: 55 11% 80%;
-    --input: 55 11% 80%;
-    --ring: 163 50% 30%;
-    --radius: 0.375rem;
-
-    --route-green: 163 50% 30%;
-    --route-orange: 20 63% 58%;
-    --route-cloud: 192 30% 35%;
-    --route-ochre: 35 50% 37%;
-    --glow-primary: none;
-    --glow-accent: none;
-    --gradient-hero: none;
-    --gradient-card: none;
-    --terminal-green: 163 50% 30%;
-    --terminal-cyan: 163 50% 30%;
-    --terminal-yellow: 35 50% 37%;
-
-    --sidebar-background: 54 17% 88%;
-    --sidebar-foreground: 167 23% 12%;
-    --sidebar-primary: 163 50% 30%;
-    --sidebar-primary-foreground: 48 28% 96%;
-    --sidebar-accent: 55 11% 80%;
-    --sidebar-accent-foreground: 167 23% 12%;
-    --sidebar-border: 55 11% 80%;
-    --sidebar-ring: 163 50% 30%;
+    --sidebar-background: 220 18% 10%;
+    --sidebar-foreground: 180 10% 92%;
+    --sidebar-primary: 175 80% 50%;
+    --sidebar-primary-foreground: 220 20% 6%;
+    --sidebar-accent: 220 15% 15%;
+    --sidebar-accent-foreground: 180 10% 92%;
+    --sidebar-border: 220 15% 20%;
+    --sidebar-ring: 175 80% 50%;
   }
 
   * {
@@ -68,7 +65,7 @@
   }
 
   h1, h2, h3, h4, h5, h6 {
-    font-family: 'Space Grotesk', sans-serif;
+    font-family: 'JetBrains Mono', monospace;
     letter-spacing: 0;
   }
 
@@ -81,6 +78,58 @@
     outline: 2px solid hsl(var(--route-orange));
     outline-offset: 3px;
   }
+}
+
+/* Keep the atlas palette and typography inside the professional portfolio only. */
+.portfolio-site {
+  --background: 48 28% 93%;
+  --foreground: 167 23% 12%;
+  --card: 54 17% 88%;
+  --card-foreground: 167 23% 12%;
+  --popover: 48 28% 93%;
+  --popover-foreground: 167 23% 12%;
+  --primary: 163 50% 30%;
+  --primary-foreground: 48 28% 96%;
+  --secondary: 54 17% 88%;
+  --secondary-foreground: 167 23% 12%;
+  --muted: 55 11% 80%;
+  --muted-foreground: 155 6% 37%;
+  --accent: 20 63% 58%;
+  --accent-foreground: 167 23% 12%;
+  --destructive: 0 65% 46%;
+  --destructive-foreground: 48 28% 96%;
+  --border: 55 11% 80%;
+  --input: 55 11% 80%;
+  --ring: 163 50% 30%;
+  --radius: 0.375rem;
+  --route-green: 163 50% 30%;
+  --route-orange: 20 63% 58%;
+  --route-cloud: 192 30% 35%;
+  --route-ochre: 35 50% 37%;
+  --glow-primary: none;
+  --glow-accent: none;
+  --gradient-hero: none;
+  --gradient-card: none;
+  --terminal-green: 163 50% 30%;
+  --terminal-cyan: 163 50% 30%;
+  --terminal-yellow: 35 50% 37%;
+  --sidebar-background: 54 17% 88%;
+  --sidebar-foreground: 167 23% 12%;
+  --sidebar-primary: 163 50% 30%;
+  --sidebar-primary-foreground: 48 28% 96%;
+  --sidebar-accent: 55 11% 80%;
+  --sidebar-accent-foreground: 167 23% 12%;
+  --sidebar-border: 55 11% 80%;
+  --sidebar-ring: 163 50% 30%;
+}
+
+.portfolio-site h1,
+.portfolio-site h2,
+.portfolio-site h3,
+.portfolio-site h4,
+.portfolio-site h5,
+.portfolio-site h6 {
+  font-family: 'Space Grotesk', sans-serif;
 }
 
 @layer utilities {
