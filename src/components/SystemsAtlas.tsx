@@ -230,7 +230,7 @@ export const SystemsAtlas = () => {
           </Button>
         </header>
 
-        <div className="atlas-map" aria-label="Interactive map of four engineering routes">
+        <div className="atlas-map" role="group" aria-label="Interactive map of four engineering routes">
           {ATLAS_ROUTES.map((route) => {
             const isDimmed = highlightedRoute !== null && highlightedRoute !== route.id;
             const isHighlighted = highlightedRoute === route.id;

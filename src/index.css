@@ -82,6 +82,8 @@
 
 /* Keep the atlas palette and typography inside the professional portfolio only. */
 .portfolio-site {
+  overflow-x: clip;
+  color: hsl(var(--foreground));
   --background: 48 28% 93%;
   --foreground: 167 23% 12%;
   --card: 54 17% 88%;
