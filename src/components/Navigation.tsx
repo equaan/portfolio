@@ -13,6 +13,17 @@ export const Navigation = () => {
   const [isOpen, setIsOpen] = useState(false);
 
   const closeMenu = () => setIsOpen(false);
+  const navigateToSection = (event: React.MouseEvent<HTMLAnchorElement>, href: string) => {
+    if (window.location.pathname !== import.meta.env.BASE_URL) return;
+
+    const target = document.querySelector(href);
+    if (!target) return;
+
+    event.preventDefault();
+    closeMenu();
+    window.history.replaceState(null, '', href);
+    target.scrollIntoView({ behavior: 'instant', block: 'start' });
+  };
 
   return (
     <header className="site-header">
@@ -24,7 +35,12 @@ export const Navigation = () => {
 
         <div className="site-nav-links">
           {navItems.map((item) => (
-            <a key={item.href} href={item.href} className="site-nav-link">
+            <a
+              key={item.href}
+              href={item.href}
+              className="site-nav-link"
+              onClick={(event) => navigateToSection(event, item.href)}
+            >
               {item.label}
             </a>
           ))}
@@ -52,7 +68,12 @@ export const Navigation = () => {
       {isOpen && (
         <div id="mobile-navigation" className="site-mobile-menu">
           {navItems.map((item) => (
-            <a key={item.href} href={item.href} className="site-mobile-link" onClick={closeMenu}>
+            <a
+              key={item.href}
+              href={item.href}
+              className="site-mobile-link"
+              onClick={(event) => navigateToSection(event, item.href)}
+            >
               {item.label}
             </a>
           ))}
